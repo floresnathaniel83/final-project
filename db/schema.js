@@ -5,18 +5,37 @@ const Schema = mongoose.Schema;
 // ----------------------
 // USERS
 // ----------------------
+//>>> all schemas have their own id given by mongoose unique to the db
 const usersSchema = new Schema({
   // required for authentication: DO NOT TOUCH Or You May Get Punched
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
+  favImgUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y'},
+  genreTags: {type: [String], required: true }, //>>>can be used to search tags
+  journeyDesc: {type: String, required: true},
+  vinylMissed: {type: String, required: true},
+  vinylDollar: {type: String, required: true}	
   
-   // example of optional fields
-  name:      { type: String },
-  createdAt: { type: Date, default: Date.now }
+ })
+
+const vinylSchema = new Schema ({ 
+	ownerId: {type: String, required: true},
+	artist: {type: String, required: true},
+	title: {type: String, required: true},
+	year: {type: Number, required: true},
+	imageUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y'},
+	location: {type: String},
+	artistDesc: {type: String, required: true}
+},
+
+{
+	timestamps: true
 
 })
 
 module.exports = {
-  User: createModel('User', usersSchema)
+  User: createModel('User', usersSchema),
+  Vinyl: createModel('Vinyl', vinylSchema)
+
 }

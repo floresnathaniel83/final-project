@@ -14,14 +14,18 @@ authRouter
     let newUser = new User(req.body)
 
     User.find({email: req.body.email}, function(err, results){
-      if (err) return res.status(500).send('error saving querying db for user')
+      if (err) return res.status(500).send({
+        msg: err
+      })
 
       if(results !== null && results.length > 0 ) { 
         return res.status(401).send(`oops, record for <${req.body.email}> already exists`)
       }
 
       newUser.save(function(err, record){
-        if(err) return res.status(500).send('server/db error on attempt to save user to db')
+        if(err) return res.status(500).send({
+          msg: 'server/db error on attempt to save user to db',
+          err: err})
         let userCopy = newUser.toObject()
         delete userCopy.password
         res.json(userCopy)

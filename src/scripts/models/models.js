@@ -2,6 +2,30 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
 
+
+export const VinylModel = Backbone.Model.extend({
+	urlRoot: '/api/vinyl',
+	idAttribute: '_id'
+})
+
+export const VinylCollection = Backbone.Collection.extend ({
+	model: VinylModel,
+	url: '/api/vinyl'
+
+})
+
+export const UserModel = Backbone.Model.extend({
+	urlRoot: '/api/users',
+	idAttribute: '_id'
+
+})
+
+export const UserCollection = Backbone.Collection.extend ({
+	model: UserModel,
+	url: '/api/users'
+
+})
+
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
 	urlRoot: '/api/users',
@@ -63,5 +87,5 @@ const User = UserAuthModel.extend({
 
 	}
 })
-
-export { User }
+window.User = User
+export { User, VinylModel, VinylCollection, UserModel, UserCollection }
