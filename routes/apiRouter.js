@@ -4,7 +4,9 @@ let helpers = require('../config/helpers.js')
 
 let User = require('../db/schema.js').User
 let Vinyl = require('../db/schema.js').Vinyl
+let Trade = require('../db/schema.js').Trade
 
+//USER SERVER ROUTES
   apiRouter
     .get('/users', function(req, res){
       User.find(req.query , "-password", function(err, results){
@@ -39,10 +41,8 @@ let Vinyl = require('../db/schema.js').Vinyl
         })
       })  
     })
-
-    // Routes for a Model(resource) should have this structure
-    
-    //>>> posts invidual vinyl
+      //VINYL SERVER ROUTES
+    //>>> posts individual vinyl
     apiRouter.post('/vinyl', function(request, response) {
       let vinyl = new Vinyl(request.body) 
       vinyl.save(function(error) { 
@@ -54,10 +54,14 @@ let Vinyl = require('../db/schema.js').Vinyl
             }
           })
         })
-    
-    //>>> gets all vinyl posts
+
+    //READ MANY
+    // //>>> gets vinyl owned by any user. 
+    //  will read /vinyl?ownerId=123 
+    // and store {ownerId: 123} under request.query
+  
     apiRouter.get('/vinyl', function(request, response) {
-      Vinyl.find(request.query, function(error, records){  
+        Vinyl.find(request.query, function(error, records){  
           if(error) {
               response.send(error)
           }
@@ -67,21 +71,71 @@ let Vinyl = require('../db/schema.js').Vinyl
           })
         })
 
-    //>>> gets vinyl owned by any user
-    apiRouter.get('/vinyl/:ownerId', function(request, response) {
-      Vinyl.find(request.params, function(error, records){  
-          if(error) {
+    // READ ONE
+    // >>> gets just a single vinyl with a unique _id
+    // what pattern will it match?
+    // vinyl/123
+    // how will it store the vinyl id?
+    // request.params becomes an object: {vinylId : 123}
+      apiRouter.get('/vinyl/:vinylId', function(request, response) {
+        Vinyl.findById(request.params.vinylId, function(error, records){  
+           if(error) {
               response.send(error)
-          }
-          else {
-              response.json(records)
-            }
-          })
-        })
-
+           }
+           else {
+               response.json(records)
+             }
+           })
+         })
     //>>> gets vinyl associated with current user logged in
-    apiRouter.get('user/vinyl', function(request, response) {
+      apiRouter.get('user/vinyl', function(request, response) {
         Vinyl.find({ownerId: request.user._id}, function(error, records) { 
+          if(error) {
+              response.send(error)
+          }
+          else {
+              response.json(records)
+            }
+          })
+        })
+      //TRADE SERVER ROUTES
+      //>>> posts trade
+      apiRouter.post('/trades', function(request, response) {
+      let trade = new Trade(request.body) 
+      trade.save(function(error) { 
+          if(error) {
+              response.send(error)
+          }
+          else {
+              response.json(trade)
+            }
+          })
+        })
+      //>>> gets all trades owned by any trader
+      apiRouter.get('/trades', function(request, response) {
+        Trade.find(request.query, function(error, records){  
+          if(error) {
+              response.send(error)
+          }
+          else {
+              response.json(records)
+            }
+          })
+        })
+       //>>> gets a single trade with unique _id  
+       apiRouter.get('/trades/:tradeId', function(request, response) {
+        Vinyl.findById(request.params.vinylId, function(error, records){  
+           if(error) {
+              response.send(error)
+           }
+           else {
+               response.json(records)
+             }
+           })
+         })
+      //>>> gets trades associated with current user logged in
+      apiRouter.get('user/trades', function(request, response) {
+        Trade.find({traderId: request.user._id}, function(error, records) { 
           if(error) {
               response.send(error)
           }

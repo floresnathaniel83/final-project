@@ -1,13 +1,21 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
-import {VinylCollection, UserCollection} from './models/models'
+import {VinylModel, VinylCollection, UserCollection, TradesModel, TradesCollection} from './models/models'
 
 const TRADE_STORE = _.extend(Backbone.Events, {
 	data: {
 		vinylCollection: new VinylCollection(),
-		userCollection: new UserCollection()
-
+		userCollection: new UserCollection(),
+		vinylModel: new VinylModel(),
+		tradesCollection: new TradesCollection(),
+		tradesModel: new TradesModel()
+		//vinylByOwner: new vinylByOwnerCollection()
 	},
+
+
+	// vc.fetch({
+	// 	url: '/vinyl/{whateverhteidis}'
+	// })
 
 	_emitChange: function () {
 		this.trigger('updateContent') //>>> broadcast to component (.on) 
@@ -20,7 +28,10 @@ const TRADE_STORE = _.extend(Backbone.Events, {
 
 	_initialize: function () {
 		this.data.vinylCollection.on('sync update', this._emitChange.bind(this)),
-		this.data.userCollection.on('sync update', this._emitChange.bind(this))
+		this.data.userCollection.on('sync update', this._emitChange.bind(this)),
+		this.data.vinylModel.on('sync update', this._emitChange.bind(this)),
+		this.data.tradesCollection.on('sync update', this._emitChange.bind(this)),
+		this.data.tradesModel.on('sync update', this._emitChange.bind(this))
 	},
 
 })

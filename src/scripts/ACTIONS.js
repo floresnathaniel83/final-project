@@ -3,7 +3,6 @@ import TRADE_STORE from './STORE'
 
 const ACTIONS = {
 	registerUser: function (userObj) {
-		console.log(userObj)
 		User.register(userObj).then(
 			()=>this.logUserIn(userObj.email, userObj.password),
 			(err)=>{
@@ -47,18 +46,45 @@ const ACTIONS = {
                 console.log(error)
             }
         )
+     },
+
+     saveTrades: function(tradesObj) {
+        var trade = new TradesModel(tradesObj)
+        trade.save().then(
+            (responseData) => {
+                alert('making the offer!!!')
+                location.hash = 'home'
+                console.log(responseData)
+            },
+            
+            (error) => {
+                alert('FAILURE')
+                console.log(error)
+            }
+        )
+
+
 
     },
     //>>> builds query strings
     //>>> /api/vinyl?ownerId=«_id»
 	fetchVinyl: function (queryObj) {
-		console.log(queryObj)
+		//console.log(queryObj)
 		TRADE_STORE.data.vinylCollection.fetch({
-			data: queryObj 
-		
+			data: queryObj
 		})
 
 	},
+
+	fetchSingleVinyl: function (queryObj) {
+		//console.log(queryObj)
+		TRADE_STORE.data.vinylModel.fetch({
+			url: 'api/vinyl/' + queryObj.vinylId
+		})
+	},
+
+
+	//>>>remember a .then is asychronous function, once the response comes back execute and you can test if client server relationship is working with success failure functions
 	//>>> builds query strings
 	//>>> /api/users
 	fetchUsers: function (queryObj) {

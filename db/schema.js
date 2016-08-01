@@ -34,8 +34,18 @@ const vinylSchema = new Schema ({
 
 })
 
+const tradesSchema = new Schema ({
+	offeringUser: {type: String, required: true}, //>>> getCurrentUser
+	confirmingUser: {type: String, required: true}, //>>> ownerId 
+	vinylWant: {type: String, required: true}, //>>> vinylId
+	vinylTrade: {type: String, required: true}, //>>> vinylId 
+	accepted: {type: Boolean, default: false}
+
+})
+
 module.exports = {
   User: createModel('User', usersSchema),
-  Vinyl: createModel('Vinyl', vinylSchema)
+  Vinyl: createModel('Vinyl', vinylSchema),
+  Trade: createModel('Trade', tradesSchema)
 
 }

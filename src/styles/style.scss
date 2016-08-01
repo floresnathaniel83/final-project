@@ -3,7 +3,7 @@
 	box-sizing: border-box;
 }
 
-a {
+p {
 	margin: 1%
 
 }
@@ -29,6 +29,27 @@ h1 {
 		}
 
 		.collector {
+			display: inline-block;
+			vertical-align: center;
+			margin-right: 10%;
+		}
+}
+
+.vinylContainer {
+	.vinyl {
+		border: 3px solid lightBlue;
+		background: white;
+		width: 30%;
+		margin: 3% auto;
+		padding: 2%;
+		position: relative;
+	}
+
+		p {
+			margin: 1% 0;
+		}
+
+		.vinyl {
 			display: inline-block;
 			vertical-align: center;
 			margin-right: 10%;

@@ -33,6 +33,8 @@ const RegisterBox = React.createClass({
 	render: function() {
 		return (
 			<div className="loginBox register">
+				<p>"THE MORE INFORMATION ONE CAN GATHER ABOUT A PARTICULAR SUBJECT, THE GREATER THE UNDERSTANDING WILL BE. THE VINYL RECORD IS FREQUENTLY THE ONLY PROOF THAT A CREATIVE HUMAN EVENT ACTUALLY TOOK PLACE."</p>
+
 				<form onSubmit={this._handleRegister} >
 					<h3>Register</h3>
 					<input type="email" name="email"

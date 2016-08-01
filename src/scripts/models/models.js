@@ -26,6 +26,20 @@ export const UserCollection = Backbone.Collection.extend ({
 
 })
 
+export const TradesModel = Backbone.Model.extend({
+	urlRoot: '/api/trades',
+	idAttribute: '_id'
+
+})
+
+export const TradesCollection = Backbone.Collection.extend ({
+	model: TradesModel,
+	url: '/api/trades'
+
+})
+
+
+
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 const UserAuthModel = Backbone.Model.extend({
 	urlRoot: '/api/users',

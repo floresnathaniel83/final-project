@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import Dashboard from './views/dashboard'
+import ShelfView from './views/shelfView'
+import DetailView from './views/detailView'
+import TradeView from './views/tradeView'
 import LoginView from './views/loginView'
 import ComposeView from './views/composeView'
 import Header from './views/header'
@@ -15,19 +18,30 @@ const app = function() {
   		routes: {
   			'home': 'goHome',
         	'login': 'handleLogin',
+        	'vinyl/shelf/:ownerId':'handleShelf',
+        	'vinyl/detail/:vinylId': 'handleDetail',
+        	'vinyl/trade/:vinylId' : 'handleTrade',
         	'vinyl/postVinyl': 'handleCompose',
-        	'vinyl/shelf':'handleShelf',
   			'*catchall': 'redirectHome'
 		},
 
 		handleCompose: function () {
 			ReactDOM.render(<ComposeView />, document.querySelector('.container'))
 
+		},
+
+		handleShelf: function (ownerId) {
+			ReactDOM.render(<ShelfView ownerId = {ownerId} />, document.querySelector('.container'))
 
 		},
 
-		handleShelf: function () {
-			ReactDOM.render(<Dashboard routedFrom='vinyl/shelf' />, document.querySelector('.container'))
+		handleDetail: function (vinylId) {
+			ReactDOM.render(<DetailView vinylId = {vinylId} />, document.querySelector('.container'))
+
+		},
+
+		handleTrade: function (vinylId) {
+			ReactDOM.render(<TradeView vinylId = {vinylId} />, document.querySelector('.container'))
 
 		},
 
