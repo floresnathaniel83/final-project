@@ -31,7 +31,6 @@ const Dashboard = React.createClass({
 	render: function () {
 		return (
 				<div className='dashboard' >
-					<h3>DASHBOARD</h3>
 					<Header />
 					<CollectorsContainer userColl = {this.state.userCollection} />
 					
@@ -62,11 +61,16 @@ const Collector = React.createClass({
 		return (
 			<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
 				<img src = {this.props.userModel.get('favImgUrl')}/>
-				<p>user: {this.props.userModel.get('email')}</p>
-				<p>favorite genres: {this.props.userModel.get('genreTags')}</p>
-				<p>how I got addicted: {this.props.userModel.get('journeyDesc')}</p>
-				<p>the one that got away: {this.props.userModel.get('vinylMissed')}</p>
-				<p>best dollar bin record: {this.props.userModel.get('vinylDollar')}</p>
+				<h5>User:</h5> 
+				<p>{this.props.userModel.get('email')}</p>
+				<h5>Favorite genres:</h5>
+				<p> {this.props.userModel.get('genreTags')}</p>
+				<h5>How I got into collecting records:</h5>
+				<p> {this.props.userModel.get('journeyDesc')}</p>
+				<h5>The one that got away:</h5>
+				<p> {this.props.userModel.get('vinylMissed')}</p>
+				<h5>Best dollar bin record:</h5>
+				<p> {this.props.userModel.get('vinylDollar')}</p>
 			</a>
 			)
 		}

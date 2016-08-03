@@ -11,7 +11,6 @@ import ComposeView from './views/composeView'
 import Header from './views/header'
 import {User, VinylModel} from './models/models'
 
-//app_name = finalproject
 const app = function() {
   
   var AppRouter = Backbone.Router.extend({
@@ -21,6 +20,7 @@ const app = function() {
         	'vinyl/shelf/:ownerId':'handleShelf',
         	'vinyl/detail/:vinylId': 'handleDetail',
         	'vinyl/trade/:vinylId' : 'handleTrade',
+        	'vinyl/pendingTrade/:tradeId' : 'handlePendingTrade',
         	'vinyl/postVinyl': 'handleCompose',
   			'*catchall': 'redirectHome'
 		},
@@ -45,6 +45,11 @@ const app = function() {
 
 		},
 
+		handlePendingTrade: function (tradeId) {
+			ReactDOM.render(<PendingTradeView tradeId = {tradeId} />, document.querySelector('.container'))
+
+		},
+
 		goHome: function() {
 			ReactDOM.render(<Dashboard  />, document.querySelector('.container'))
 
@@ -61,12 +66,19 @@ const app = function() {
 		}, 
   	 	
   	 	initialize: function() { 
-            Backbone.history.start()
-            this.on('route', function (handlerName) {
+  	 		this.on('route', function (handlerName) {
                 if(!User.getCurrentUser()) {
                     location.hash = 'login'
-                } 
+                } else {
+					
+					if (handlerName.toLowerCase().includes('login')) {
+						location.hash = "home"
+					}
+				}
 			})
+
+            Backbone.history.start()
+            
 		}
 
 	})

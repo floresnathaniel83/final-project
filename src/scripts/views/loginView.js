@@ -33,7 +33,7 @@ const RegisterBox = React.createClass({
 	render: function() {
 		return (
 			<div className="loginBox register">
-				<p>"THE MORE INFORMATION ONE CAN GATHER ABOUT A PARTICULAR SUBJECT, THE GREATER THE UNDERSTANDING WILL BE. THE VINYL RECORD IS FREQUENTLY THE ONLY PROOF THAT A CREATIVE HUMAN EVENT ACTUALLY TOOK PLACE."</p>
+				<h3>"THE MORE INFORMATION ONE CAN GATHER ABOUT A PARTICULAR SUBJECT, THE GREATER THE UNDERSTANDING WILL BE. THE VINYL RECORD IS FREQUENTLY THE ONLY PROOF THAT A CREATIVE HUMAN EVENT ACTUALLY TOOK PLACE."</h3>
 
 				<form onSubmit={this._handleRegister} >
 					<h3>Register</h3>
@@ -44,7 +44,7 @@ const RegisterBox = React.createClass({
           			<input type="text" name="genreTags" placeholder="enter your fav genres" />
           			<p>How did you get into collecting records?</p>
           			<input type="text" name="journeyDesc" />
-          			<p>What is one record you passed on, but wished you bought?</p>
+          			<p>What is one record that got away, but wished you bought?</p>
           			<input type="text" name="vinylMissed" />
           			<p>What is the best dollar bin record you bought?</p>
           			<input type="text" name="vinylDollar" />

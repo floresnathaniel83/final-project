@@ -3,20 +3,66 @@
 	box-sizing: border-box;
 }
 
+a {
+	margin: 3%;
+	text-decoration: none;
+
+
+}
+
+button {
+	color: white;
+	margin: 1%;
+	background-color: #85ccc8;
+    border-color: #85ccc8;
+
+}
+
 p {
-	margin: 1%
+	margin: 1%;
+	color: black;
+	font-weight: inherit;
 
 }
 
 h1 {
 	font-size: 50px;
 	text-align: center;
-	color: lightBlue;
+	
+}
+
+h5 {
+	color: #33C3F0;
+	margin: 0%;
+	font-weight: 500
+
+}
+
+input {
+    height: 38px;
+    width: 82%;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 200px;
+    min-width: 82%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.hidden {
+	display: none;
 }
 
 .collectorsContainer {
 	.collector {
-		border: 3px solid lightBlue;
+		border: 3px solid #33C3F0;
 		background: white;
 		width: 30%;
 		margin: 3% auto;
@@ -37,7 +83,7 @@ h1 {
 
 .vinylContainer {
 	.vinyl {
-		border: 3px solid lightBlue;
+		border: 3px solid #33C3F0;
 		background: white;
 		width: 30%;
 		margin: 3% auto;

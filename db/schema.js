@@ -24,7 +24,7 @@ const vinylSchema = new Schema ({
 	artist: {type: String, required: true},
 	title: {type: String, required: true},
 	year: {type: Number, required: true},
-	imageUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y'},
+	imageUrl: {type: String, required: true},
 	location: {type: String},
 	artistDesc: {type: String, required: true}
 },
@@ -37,8 +37,8 @@ const vinylSchema = new Schema ({
 const tradesSchema = new Schema ({
 	offeringUser: {type: String, required: true}, //>>> getCurrentUser
 	confirmingUser: {type: String, required: true}, //>>> ownerId 
-	vinylWant: {type: String, required: true}, //>>> vinylId
-	vinylTrade: {type: String, required: true}, //>>> vinylId 
+	vinylWant: vinylSchema, //>>> vinylId
+	vinylTrade: vinylSchema, //>>> vinylId 
 	accepted: {type: Boolean, default: false}
 
 })

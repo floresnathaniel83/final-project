@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import Header from './header'
-import MyVinylView from './MyVinylView'
-import {User, VinylModel, VinylCollection, TradesModel, TradesCollecton} from '../models/models'
+import MyVinylView from './myVinylView'
+import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
 
 const TradeView = React.createClass ({
@@ -14,8 +14,6 @@ const TradeView = React.createClass ({
 	},
 
 	componentWillMount: function () {
-		//console.log('collection on state:', this.state.vinylModel)
-		//console.log(this.props.vinylId)
 		let queryForSingleVinyl =  {vinylId: this.props.vinylId}
 		
 		ACTIONS.fetchSingleVinyl(queryForSingleVinyl)
@@ -32,31 +30,56 @@ const TradeView = React.createClass ({
 	},
 
 	render: function () {
+		console.log(this.state.vinylOffered)
+		console.log(this.state.vinylModel)
 		return (
 			<div className = 'trade'>
-				
+				<Header />
 				<MyVinylView />
-				<TradeContainer vinylModel = {this.state.vinylModel} />
-				
+				<TradeContainer 
+					offeredVinylModel={this.state.vinylOffered} 
+					wantedVinylModel={this.state.vinylModel} 
+					/>
 			</div>
-
-
 			)
-
 	}
 })
 
 const TradeContainer = React.createClass ({
+		
+	_handleTrade: function (e) {
+		console.log(e)
+		e.preventDefault()
+		ACTIONS.saveTrades({
+			offeringUser: User.getCurrentUser()._id, //>>> getCurrentUser
+			confirmingUser: this.props.wantedVinylModel.get('ownerId'), //>>> ownerId 
+			vinylWant: this.props.wantedVinylModel.attributes, //>>> full vinyl schema
+			vinylTrade: this.props.offeredVinylModel.attributes //>>> full vinyl schema
+
+		})
+	},
+
 	render: function () {
+		let buttonClass = ''
+		if (!this.props.offeredVinylModel.get('artist')) {
+			buttonClass = 'hidden'
+		}
+
 		return (
 			<div className = 'trade'>
 				<h3>TRADE</h3>
-				<p>I want</p>
-				<img src = {this.props.vinylModel.get('imageUrl')}/>
-				<p>artist: {this.props.vinylModel.get('artist')}</p>
+				<div className = 'vinyl'>
+					<p>I want</p>
+					<img src = {this.props.wantedVinylModel.get('imageUrl')} />
+					<p>artist: {this.props.wantedVinylModel.get('artist')}</p>
+				</div>
+				<div className = 'vinyl'>
+					<p>I offer</p>
+					<img src = {this.props.offeredVinylModel.get('imageUrl')} />
+					<p>artist: {this.props.offeredVinylModel.get('artist')}</p>
+				</div>
+				<button onClick ={this._handleTrade} className={buttonClass}>make offer</button>
 			</div>
-
-
 			)
 
 	}

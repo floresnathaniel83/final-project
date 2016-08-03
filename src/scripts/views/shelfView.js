@@ -44,7 +44,7 @@ const CollectorsVinylContainer = React.createClass ({
 	render : function () {
 		return (
 				<div className = 'vinylContainer'>
-					<h3>Collector's Shelf</h3>
+					<h3>Collector's shelf</h3>
 					{this.props.vinylColl.map(
 					(model) => <CollectorsVinyl vinylModel = {model} key = {model.id} />)}
 
@@ -61,7 +61,7 @@ const CollectorsVinyl = React.createClass ({
 		return (
 
 			<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
-				<p>artist: {this.props.vinylModel.get('artist')}</p>
+				<img src = {this.props.vinylModel.get('imageUrl')}/>
 				<p>title: {this.props.vinylModel.get('title')}</p>
 
 			</a>

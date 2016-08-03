@@ -46,14 +46,13 @@ const DetailView = React.createClass({
 	const Detail = React.createClass({
 
 		render : function () {
-			//console.log('rendering detail view', this.props.vinylModel)
-			console.log('grabbing _id of vinyl', this.props.vinylModel.get('_id'))
 			return (
 					<div className = 'detail'>
 						<img src = {this.props.vinylModel.get('imageUrl')}/>
-						<p>year: {this.props.vinylModel.get('year')}</p>
-						<p>location: {this.props.vinylModel.get('location')}</p>
-						<p>artistDesc: {this.props.vinylModel.get('artistDesc')}</p>
+						<p>artist: {this.props.vinylModel.get('artist')}</p>
+						<p>Year: {this.props.vinylModel.get('year')}</p>
+						<p>Record Store: {this.props.vinylModel.get('location')}</p>
+						<p>Artist Description: {this.props.vinylModel.get('artistDesc')}</p>
 						<a href={`#vinyl/trade/${this.props.vinylModel.get('_id')}`} className="button button-primary">Trade</a>
 
 

@@ -8,6 +8,7 @@ import $ from 'jquery'
 const MyVinylView = React.createClass({
 	getInitialState: function () {
 		return TRADE_STORE._getData()
+		
 
 	},
 	
@@ -32,8 +33,7 @@ const MyVinylView = React.createClass({
 		return (
 				<div className = 'myVinylView'>
 					<h3>My Vinyl</h3>
-					<MyVinylContainer vinylColl = {this.state.vinylCollection} />
-
+					<MyVinylContainer vinylColl = {this.state.vinylCollection} /> 
 				</div>
 			)
 		}
@@ -56,23 +56,30 @@ const MyVinylContainer = React.createClass ({
 })
 
 const MyVinyl = React.createClass ({
-	render: function () {
+
+	handleTradeToggle: function (e) {
+		e.preventDefault()
+		ACTIONS.selectVinylToOffer(this.props.vinylModel)
+	
+	},	
+
+	render: function () { 
 		return (
 
-			<a className = 'vinyl'>
-				<img src = {this.props.vinylModel.get('imageUrl')}/>
-				<p>artist: {this.props.vinylModel.get('artist')}</p>
-				<p>title: {this.props.vinylModel.get('title')}</p>
-				<p>year: {this.props.vinylModel.get('year')}</p>
-				<p>location: {this.props.vinylModel.get('location')}</p>
-				<p>artistDesc: {this.props.vinylModel.get('artistDesc')}</p>
+			<div onClick={this.handleTradeToggle} className = 'vinyl'>
+				<img src = {this.props.vinylModel.get('imageUrl')} />
+				<p>Artist: {this.props.vinylModel.get('artist')}</p>
+				<p>Title: {this.props.vinylModel.get('title')}</p>
+				<p>Year: {this.props.vinylModel.get('year')}</p>
+				<p>Record Store: {this.props.vinylModel.get('location')}</p>
+				<p>Artist Description: {this.props.vinylModel.get('artistDesc')}</p>
 
-
-			</a>
+			</div>
 
 			)
 		}
-
 	})
+
+
 
 export default MyVinylView

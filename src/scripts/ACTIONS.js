@@ -1,4 +1,4 @@
-import {User, VinylModel, VinylCollection} from './models/models'
+import {User, VinylModel, VinylCollection, TradesModel, TradesCollection} from './models/models'
 import TRADE_STORE from './STORE'
 
 const ACTIONS = {
@@ -46,6 +46,11 @@ const ACTIONS = {
                 console.log(error)
             }
         )
+     },
+
+     selectVinylToOffer: function (model) {
+     	console.log('model to be set on state >>>', model)
+     	TRADE_STORE._set('vinylOffered', model)
      },
 
      saveTrades: function(tradesObj) {

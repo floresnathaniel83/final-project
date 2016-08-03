@@ -98,6 +98,8 @@ let Trade = require('../db/schema.js').Trade
             }
           })
         })
+
+      apiRouter.get
       //TRADE SERVER ROUTES
       //>>> posts trade
       apiRouter.post('/trades', function(request, response) {
