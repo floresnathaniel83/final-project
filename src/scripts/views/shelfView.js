@@ -42,15 +42,14 @@ const ShelfView = React.createClass({
 
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
+		//console.log(this.props.vinylColl.models[1].get('name'))
 		return (
 				<div className = 'vinylContainer'>
-					<h3>Collector's shelf</h3>
-					{this.props.vinylColl.map(
+									{this.props.vinylColl.map(
 					(model) => <CollectorsVinyl vinylModel = {model} key = {model.id} />)}
 
 				</div>
 			)
-
 	}
 
 
@@ -61,14 +60,13 @@ const CollectorsVinyl = React.createClass ({
 		return (
 
 			<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
+				
 				<img src = {this.props.vinylModel.get('imageUrl')}/>
 				<p>title: {this.props.vinylModel.get('title')}</p>
 
 			</a>
 
 			)
-
-
 	}
 
 

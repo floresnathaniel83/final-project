@@ -3,7 +3,7 @@ import Header from './header'
 import {User, UserModel, UserCollection} from '../models/models'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
-
+//components are like the corporate managers receiving all the information or files or data and sometimes they will speak back to 
 
 const Dashboard = React.createClass({
 	getInitialState: function () {
@@ -61,8 +61,8 @@ const Collector = React.createClass({
 		return (
 			<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
 				<img src = {this.props.userModel.get('favImgUrl')}/>
-				<h5>User:</h5> 
-				<p>{this.props.userModel.get('email')}</p>
+				<h5>Name:</h5> 
+				<p>{this.props.userModel.get('name')}</p>
 				<h5>Favorite genres:</h5>
 				<p> {this.props.userModel.get('genreTags')}</p>
 				<h5>How I got into collecting records:</h5>

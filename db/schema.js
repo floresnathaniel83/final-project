@@ -6,20 +6,24 @@ const Schema = mongoose.Schema;
 // USERS
 // ----------------------
 //>>> all schemas have their own id given by mongoose unique to the db
+//>>> schemas are blueprints for paper in the file with attributes written on them
+
 const usersSchema = new Schema({
   // required for authentication: DO NOT TOUCH Or You May Get Punched
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
+  name: { type: String, required: true},
   favImgUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y'},
   genreTags: {type: [String], required: true }, //>>>can be used to search tags
   journeyDesc: {type: String, required: true},
   vinylMissed: {type: String, required: true},
   vinylDollar: {type: String, required: true}	
-  
  })
 
-const vinylSchema = new Schema ({ 
+
+const vinylSchema = new Schema ({
+	//userInfo: usersSchema, 
 	ownerId: {type: String, required: true},
 	artist: {type: String, required: true},
 	title: {type: String, required: true},
@@ -35,12 +39,11 @@ const vinylSchema = new Schema ({
 })
 
 const tradesSchema = new Schema ({
-	offeringUser: {type: String, required: true}, //>>> getCurrentUser
-	confirmingUser: {type: String, required: true}, //>>> ownerId 
-	vinylWant: vinylSchema, //>>> vinylId
+	offeringUser: {type: String, required: true}, //>>> getCurrentUser add usersSchema to grab email
+	confirmingUser: {type: String, required: true}, //>>> ownerId add usersSchema to grab email 
+	vinylWant: vinylSchema, //>>> getting error, may need to wrap in fragment, check react docs
 	vinylTrade: vinylSchema, //>>> vinylId 
-	accepted: {type: Boolean, default: false}
-
+	accepted: {type: Boolean, default: false} //>>> trying to see if I can start off as null and update true or false
 })
 
 module.exports = {

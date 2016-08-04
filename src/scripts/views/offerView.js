@@ -7,16 +7,16 @@ import MyVinylView from './myVinylView'
 import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
 
-const TradeView = React.createClass ({
+const OfferView = React.createClass ({
 	getInitialState: function () {
-		return TRADE_STORE._getData()
+		return TRADE_STORE._getData() //physically sets new shit on state
 
 	},
 
 	componentWillMount: function () {
 		let queryForSingleVinyl =  {vinylId: this.props.vinylId}
 		
-		ACTIONS.fetchSingleVinyl(queryForSingleVinyl)
+		ACTIONS.fetchSingleVinyl(queryForSingleVinyl) //actions is like modify or filter this new shit that came in
 		
 		TRADE_STORE.on('updateContent', () => {
 	 			this.setState(TRADE_STORE._getData())
@@ -30,14 +30,12 @@ const TradeView = React.createClass ({
 	},
 
 	render: function () {
-		console.log(this.state.vinylOffered)
-		console.log(this.state.vinylModel)
 		return (
 			<div className = 'trade'>
 				<Header />
 				<MyVinylView />
 				<TradeContainer 
-					offeredVinylModel={this.state.vinylOffered} 
+					offeredVinylModel={this.state.vinylOffered} //>>> new shit set on state
 					wantedVinylModel={this.state.vinylModel} 
 					/>
 			</div>
@@ -48,7 +46,6 @@ const TradeView = React.createClass ({
 const TradeContainer = React.createClass ({
 		
 	_handleTrade: function (e) {
-		console.log(e)
 		e.preventDefault()
 		ACTIONS.saveTrades({
 			offeringUser: User.getCurrentUser()._id, //>>> getCurrentUser
@@ -69,12 +66,12 @@ const TradeContainer = React.createClass ({
 			<div className = 'trade'>
 				<h3>TRADE</h3>
 				<div className = 'vinyl'>
-					<p>I want</p>
+					<h1>I want</h1>
 					<img src = {this.props.wantedVinylModel.get('imageUrl')} />
 					<p>artist: {this.props.wantedVinylModel.get('artist')}</p>
 				</div>
 				<div className = 'vinyl'>
-					<p>I offer</p>
+					<h1>I offer</h1>
 					<img src = {this.props.offeredVinylModel.get('imageUrl')} />
 					<p>artist: {this.props.offeredVinylModel.get('artist')}</p>
 				</div>
@@ -86,4 +83,4 @@ const TradeContainer = React.createClass ({
 
 })
 
-export default TradeView
+export default OfferView

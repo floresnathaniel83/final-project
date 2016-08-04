@@ -1,18 +1,20 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
 import {VinylModel, VinylCollection, UserCollection, TradesModel, TradesCollection} from './models/models'
-
+//Controls the state of the app (data is just chilling here )
+//The Store is like a room full of file cabinets
 const TRADE_STORE = _.extend(Backbone.Events, {
 	data: {
 		vinylCollection: new VinylCollection(),
+		vinylModel: new VinylModel(), //>>> can be set as new shit anywhere
+		vinylOffered: new VinylModel(),
 		userCollection: new UserCollection(),
-		vinylModel: new VinylModel(),
 		tradesCollection: new TradesCollection(),
-		vinylOffered: new VinylModel()		
+		tradesModel: new TradesModel()		
 		//vinylByOwner: new vinylByOwnerCollection()
 	},
 
-	_set: function(key,val) { //>>> sets any changes to data
+	_set: function(key,val) { //>>> sets any changes to data(the new shit) on state
 		console.log('KEY:', key, 'VALUE:', val)
 		if (this.data[key] === undefined) {
 			throw Error(`${key} property not on the STORE, make sure to declare`)

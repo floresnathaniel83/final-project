@@ -5,11 +5,13 @@ import init from './init'
 import Dashboard from './views/dashboard'
 import ShelfView from './views/shelfView'
 import DetailView from './views/detailView'
-import TradeView from './views/tradeView'
+import OfferView from './views/offerView'
+import AllTradesView from './views/allTradesView'
 import LoginView from './views/loginView'
 import ComposeView from './views/composeView'
 import Header from './views/header'
 import {User, VinylModel} from './models/models'
+//controls views(where the user is at in the app)
 
 const app = function() {
   
@@ -19,8 +21,8 @@ const app = function() {
         	'login': 'handleLogin',
         	'vinyl/shelf/:ownerId':'handleShelf',
         	'vinyl/detail/:vinylId': 'handleDetail',
-        	'vinyl/trade/:vinylId' : 'handleTrade',
-        	'vinyl/pendingTrade/:tradeId' : 'handlePendingTrade',
+        	'vinyl/offer/:vinylId' : 'handleOffer',
+        	'trades/allTrades' : 'handleAllTrades',
         	'vinyl/postVinyl': 'handleCompose',
   			'*catchall': 'redirectHome'
 		},
@@ -40,13 +42,13 @@ const app = function() {
 
 		},
 
-		handleTrade: function (vinylId) {
-			ReactDOM.render(<TradeView vinylId = {vinylId} />, document.querySelector('.container'))
+		handleOffer: function (vinylId) {
+			ReactDOM.render(<OfferView vinylId = {vinylId} />, document.querySelector('.container'))
 
 		},
 
-		handlePendingTrade: function (tradeId) {
-			ReactDOM.render(<PendingTradeView tradeId = {tradeId} />, document.querySelector('.container'))
+		handleAllTrades: function () {
+			ReactDOM.render(<AllTradesView />, document.querySelector('.container'))
 
 		},
 

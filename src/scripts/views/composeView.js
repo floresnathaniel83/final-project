@@ -21,6 +21,7 @@ const VinylPostingForm = React.createClass({
 	_handleCompose: function (e) {
 			e.preventDefault()
 			ACTIONS.saveVinyl({
+				name: e.currentTarget.name.value,
 				ownerId: User.getCurrentUser()._id,
 				artist: e.currentTarget.artist.value,
 				title: e.currentTarget.title.value,
@@ -46,7 +47,8 @@ const VinylPostingForm = React.createClass({
 			return (
 				
 				<div className="vinylPostingForm">
-					<form onSubmit = {this._handleCompose}> 
+					<form onSubmit = {this._handleCompose}>
+						<input type = 'text' name = 'name' placeholder = 'enter your name' /> 
 						<input type = 'text' name = 'title' placeholder = 'Enter the name of the album' />
 						<input type = 'text' name = 'artist' placeholder = 'Enter the artist' />
 						<input type = 'text' name = 'year' placeholder = 'Enter the year produced' />

@@ -20,6 +20,7 @@ const RegisterBox = React.createClass({
 	_handleRegister: function(evt) {
 		evt.preventDefault()
 		ACTIONS.registerUser({
+			  name: evt.currentTarget.name.value,
 		      email: evt.currentTarget.email.value,
 		      password: evt.currentTarget.password.value,
 		      genreTags: evt.currentTarget.genreTags.value,

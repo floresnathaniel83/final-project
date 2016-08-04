@@ -1,26 +1,31 @@
 import {User, VinylModel, VinylCollection, TradesModel, TradesCollection} from './models/models'
 import TRADE_STORE from './STORE'
+import toastr from 'toastr'
 
+
+//controls modifications or changes sends new shit to the store(stop chilling set the new shit on your state) 
+//actions are like the file clerk
 const ACTIONS = {
 	registerUser: function (userObj) {
 		User.register(userObj).then(
 			()=>this.logUserIn(userObj.email, userObj.password),
 			(err)=>{
 				console.log(err)
-				alert('failure to register')
+				toastr.error('failure to register')
 			})
 	},
 
 	logUserIn: function (email, password){
 		User.login(email, password).then(
 			()=> {
-					alert(`user ${email} logged in!`)
+					toastr.info(`user ${email} logged in!`)
 					location.hash='home'
 				},
 				
 				(err)=> {
 
-					alert('failure logging in')
+					toastr.error('failure logging in')
+					location.hash='login'
 					console.log(err)
 				})
 		
@@ -32,52 +37,77 @@ const ACTIONS = {
 		)
 	},
 
-	saveVinyl: function(vinylObj) {
+	selectVinylToOffer: function (model) {
+     	console.log('model to be set on state >>>', model)
+     	TRADE_STORE._set('vinylOffered', model)
+     },
+
+     saveVinyl: function(vinylObj) {
         var vinyl = new VinylModel(vinylObj)
         vinyl.save().then(
             (responseData) => {
-                alert('Thanks for submitting!!!')
+                toastr.error('Thanks for submitting!!!')
                 location.hash = 'home'
                 console.log(responseData)
             },
             
             (error) => {
-                alert('FAILURE')
+                toastr.error('FAILURE')
                 console.log(error)
             }
         )
-     },
-
-     selectVinylToOffer: function (model) {
-     	console.log('model to be set on state >>>', model)
-     	TRADE_STORE._set('vinylOffered', model)
      },
 
      saveTrades: function(tradesObj) {
         var trade = new TradesModel(tradesObj)
         trade.save().then(
             (responseData) => {
-                alert('making the offer!!!')
+                toastr.success('making the offer!!!')
                 location.hash = 'home'
                 console.log(responseData)
             },
             
             (error) => {
-                alert('FAILURE')
+                toastr.error('FAILURE')
                 console.log(error)
             }
         )
-
-
-
     },
+ 
+    fetchTrades: function (queryObj) {
+	 	TRADE_STORE.data.tradesCollection.fetch({
+			data: queryObj
+		}).then(
+            (responseData) => {
+                toastr.success('getting trades!!!')
+                console.log(responseData)
+            },
+            
+            (error) => {
+                toastr.error('FAILURE')
+                console.log(error)
+            }
+        )
+	 },
+	 
     //>>> builds query strings
     //>>> /api/vinyl?ownerId=«_id»
+    
 	fetchVinyl: function (queryObj) {
 		//console.log(queryObj)
 		TRADE_STORE.data.vinylCollection.fetch({
 			data: queryObj
-		})
+		}).then(
+            (responseData) => {
+                toastr.success('getting vinyl!!!')
+                console.log(responseData)
+            },
+            
+            (error) => {
+                toastr.error('FAILURE')
+                console.log(error)
+            }
+        )
 
 	},
 

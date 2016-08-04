@@ -1,14 +1,15 @@
 import Backbone from 'backbone'
 import $ from 'jquery'
 import {app_name} from '../app'
-
+//>>> collections are like file cabinet
+//>>> models are like a file 
 
 export const VinylModel = Backbone.Model.extend({
 	urlRoot: '/api/vinyl',
 	idAttribute: '_id'
 })
 
-export const VinylCollection = Backbone.Collection.extend ({
+export const VinylCollection = Backbone.Collection.extend ({ 
 	model: VinylModel,
 	url: '/api/vinyl'
 

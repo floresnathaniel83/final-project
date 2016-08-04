@@ -1,3 +1,4 @@
+
 let Router = require('express').Router;
 const apiRouter = Router()
 let helpers = require('../config/helpers.js')
@@ -113,20 +114,21 @@ let Trade = require('../db/schema.js').Trade
             }
           })
         })
-      //>>> gets all trades owned by any trader
+      //>>> gets all trades 
       apiRouter.get('/trades', function(request, response) {
+        console.log(request.query)
         Trade.find(request.query, function(error, records){  
           if(error) {
-              response.send(error)
+              response.status(500).send(error)
           }
           else {
               response.json(records)
             }
-          })
         })
+      })
        //>>> gets a single trade with unique _id  
        apiRouter.get('/trades/:tradeId', function(request, response) {
-        Vinyl.findById(request.params.vinylId, function(error, records){  
+        Vinyl.findById(request.params.tradeId, function(error, records){  
            if(error) {
               response.send(error)
            }

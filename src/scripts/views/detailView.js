@@ -53,7 +53,7 @@ const DetailView = React.createClass({
 						<p>Year: {this.props.vinylModel.get('year')}</p>
 						<p>Record Store: {this.props.vinylModel.get('location')}</p>
 						<p>Artist Description: {this.props.vinylModel.get('artistDesc')}</p>
-						<a href={`#vinyl/trade/${this.props.vinylModel.get('_id')}`} className="button button-primary">Trade</a>
+						<a href={`#vinyl/offer/${this.props.vinylModel.get('_id')}`} className="button button-primary">Trade</a>
 
 
 					</div> 

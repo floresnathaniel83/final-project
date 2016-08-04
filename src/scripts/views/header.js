@@ -25,6 +25,8 @@ const NavBar = React.createClass({
         href="#home">Home</a>
         		<a className="button button-primary"
         href="#vinyl/postVinyl">Post Vinyl</a>
+        		<a className="button button-primary" 
+        href="#trades/allTrades">All Trades</a>
         		<a className="button button-primary"
         href="#" onClick={ACTIONS.logUserOut} >Log Out</a>
 			</div>
