@@ -156,10 +156,10 @@ const ACTIONS = {
                 console.log(error)
             }
         )
-        trade.destroy()
+
 	 },
 	 
-	
+
 
     //>>> builds query strings
     //>>> /api/vinyl?ownerId=«_id»
