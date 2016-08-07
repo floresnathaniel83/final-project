@@ -30,6 +30,7 @@ const OfferView = React.createClass ({
 	},
 
 	render: function () {
+		console.log(this.state)
 		return (
 			<div className = 'trade'>
 				<Header />
@@ -73,9 +74,10 @@ const TradeContainer = React.createClass ({
 				<div className = 'vinyl'>
 					<h1>I offer</h1>
 					<img src = {this.props.offeredVinylModel.get('imageUrl')} />
-					<p>artist: {this.props.offeredVinylModel.get('artist')}</p>
+					<p>artist:{this.props.offeredVinylModel.get('artist')}</p>
 				</div>
 				<button onClick ={this._handleTrade} className={buttonClass}>make offer</button>
+	
 			</div>
 			)
 

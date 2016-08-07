@@ -23,7 +23,7 @@ const app = function() {
         	'vinyl/detail/:vinylId': 'handleDetail',
         	'vinyl/offer/:vinylId' : 'handleOffer',
         	'trades/allTrades' : 'handleAllTrades',
-        	'vinyl/postVinyl': 'handleCompose',
+        	'vinyl/postVinyl' : 'handleCompose',
   			'*catchall': 'redirectHome'
 		},
 

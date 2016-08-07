@@ -7,7 +7,8 @@ const Header = React.createClass({
 	render: function() {
 		return (
 			<div id="headerContainer">
-				<h1>Record Pal</h1>
+				<h1>Vinyl Pi</h1>
+				<img className = "headerImg" src= 'http://www.clipartbest.com/cliparts/ncX/8aK/ncX8aK8ri.jpeg' />
 
 				<NavBar />
 			</div>

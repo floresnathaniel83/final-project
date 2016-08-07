@@ -38,7 +38,6 @@ const ACTIONS = {
 	},
 
 	selectVinylToOffer: function (model) {
-     	console.log('model to be set on state >>>', model)
      	TRADE_STORE._set('vinylOffered', model)
      },
 
@@ -46,7 +45,7 @@ const ACTIONS = {
         var vinyl = new VinylModel(vinylObj)
         vinyl.save().then(
             (responseData) => {
-                toastr.error('Thanks for submitting!!!')
+                toastr.success('Thanks for submitting!!!')
                 location.hash = 'home'
                 console.log(responseData)
             },
@@ -73,13 +72,16 @@ const ACTIONS = {
             }
         )
     },
- 
-    fetchTrades: function (queryObj) {
-	 	TRADE_STORE.data.tradesCollection.fetch({
-			data: queryObj
-		}).then(
+
+    acceptTrades: function(tradesModel) {
+    	tradesModel.set({
+    		accepted: 'yes'
+
+    	})
+    	tradesModel.save()
+    	TRADE_STORE.data.tradesCollection.fetch().then(
             (responseData) => {
-                toastr.success('getting trades!!!')
+                toastr.success('accepting trades!!!')
                 console.log(responseData)
             },
             
@@ -88,8 +90,77 @@ const ACTIONS = {
                 console.log(error)
             }
         )
+
+    },
+
+    rejectTrades: function(tradesModel) {
+    	tradesModel.set({
+    		accepted: 'no'
+
+    	})
+    	tradesModel.save()
+    	TRADE_STORE.data.tradesCollection.fetch().then(
+            (responseData) => {
+                toastr.success('rejecting trades!!!')
+                console.log(responseData)
+            },
+            
+            (error) => {
+                toastr.error('FAILURE')
+                console.log(error)
+            }
+        )
+    		
+
+    },
+
+    pendingTrades: function(tradesModel) {
+    	tradesModel.set({
+    		accepted: 'pending'
+
+    	})
+    	tradesModel.save()
+    	TRADE_STORE.data.tradesCollection.fetch().then(
+            (responseData) => {
+                toastr.success('pending trades!!!')
+                console.log(responseData)
+            },
+            
+            (error) => {
+                toastr.error('FAILURE')
+                console.log(error)
+            }
+        )
+    		
+
+    },
+ 
+    fetchTrades: function (queryObj) {
+	 	TRADE_STORE.data.tradesCollection.fetch({
+			data: queryObj
+		})
+	 },
+
+	 deleteTrades: function (id) {
+	 	let trade = TRADE_STORE.data.tradesCollection.fetch({
+	 		url: 'api/trades/' + id
+
+		}).then(
+            (responseData) => {
+                toastr.success('deleting trade!!!')
+                console.log(responseData)
+            },
+            
+            (error) => {
+                toastr.error('FAILURE')
+                console.log(error)
+            }
+        )
+        trade.destroy()
 	 },
 	 
+	
+
     //>>> builds query strings
     //>>> /api/vinyl?ownerId=«_id»
     
@@ -126,6 +197,13 @@ const ACTIONS = {
 		TRADE_STORE.data.userCollection.fetch({
 			data: queryObj
 
+		})
+
+	},
+
+	fetchSingleUser: function (id) {
+		TRADE_STORE.data.userModel.fetch({
+			url: 'api/users/' + id
 		})
 
 	}

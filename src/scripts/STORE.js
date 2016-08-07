@@ -1,14 +1,15 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
-import {VinylModel, VinylCollection, UserCollection, TradesModel, TradesCollection} from './models/models'
+import {VinylModel, VinylCollection, UserCollection, UserModel, TradesModel, TradesCollection} from './models/models'
 //Controls the state of the app (data is just chilling here )
 //The Store is like a room full of file cabinets
 const TRADE_STORE = _.extend(Backbone.Events, {
 	data: {
 		vinylCollection: new VinylCollection(),
 		vinylModel: new VinylModel(), //>>> can be set as new shit anywhere
-		vinylOffered: new VinylModel(),
+		vinylOffered: new VinylModel(), //>>> may need to use intrade: yes/no >>> hidden/not hidden
 		userCollection: new UserCollection(),
+		userModel: new UserModel(),
 		tradesCollection: new TradesCollection(),
 		tradesModel: new TradesModel()		
 		//vinylByOwner: new vinylByOwnerCollection()
@@ -35,8 +36,9 @@ const TRADE_STORE = _.extend(Backbone.Events, {
 
 	_initialize: function () {
 		this.data.vinylCollection.on('sync update', this._emitChange.bind(this)),
-		this.data.userCollection.on('sync update', this._emitChange.bind(this)),
 		this.data.vinylModel.on('sync update', this._emitChange.bind(this)),
+		this.data.userCollection.on('sync update', this._emitChange.bind(this)),
+		this.data.userModel.on('sync update', this._emitChange.bind(this)),
 		this.data.tradesCollection.on('sync update', this._emitChange.bind(this))
 	}
 

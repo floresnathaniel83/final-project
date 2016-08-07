@@ -32,6 +32,9 @@ export const TradesModel = Backbone.Model.extend({
 	idAttribute: '_id'
 
 })
+// tModel._id no exists? --->  POST '/api/trades.... '
+// tModel._id exists? --->     PUT '/api/trades/:id.... '
+
 
 export const TradesCollection = Backbone.Collection.extend ({
 	model: TradesModel,

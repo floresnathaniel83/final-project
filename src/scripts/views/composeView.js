@@ -1,16 +1,39 @@
 import React from 'react'
 import Header from './header'
 import ACTIONS from '../ACTIONS'
-import {User} from '../models/models'
+import TRADE_STORE from '../STORE'
+import {UserModel, User} from '../models/models'
 import ReactFilepicker from 'react-filepicker'
 
 const ComposeView = React.createClass({
-	 render: function() {
+	getInitialState: function () {
+		return TRADE_STORE._getData()
+		
+	},
+
+	componentWillMount: function () {
+
+		let queryForSingleUser = User.getCurrentUser()._id 
+		
+		ACTIONS.fetchSingleUser(queryForSingleUser)
+		
+		TRADE_STORE.on('updateContent', () => {
+	 			this.setState(TRADE_STORE._getData())
+			})
+	},
+	
+	componentWillUnmount: function () {
+		TRADE_STORE.off('updateContent')
+
+	},
+
+	render: function() {
+	 	console.log(this.state.userModel)
 	 	return (
 	 		<div className="composeView" >
 	 			<Header />
 	 			<h3>FILL YOUR SHELF UP!</h3>
-	 			<VinylPostingForm />
+	 			<VinylPostingForm usersInfoModel={this.state.userModel}/>
 	 		</div>
 	 	)
  	}
@@ -21,14 +44,14 @@ const VinylPostingForm = React.createClass({
 	_handleCompose: function (e) {
 			e.preventDefault()
 			ACTIONS.saveVinyl({
-				name: e.currentTarget.name.value,
 				ownerId: User.getCurrentUser()._id,
 				artist: e.currentTarget.artist.value,
 				title: e.currentTarget.title.value,
 				year: e.currentTarget.year.value,
 				location: e.currentTarget.location.value,
 				artistDesc: e.currentTarget.artistDesc.value,
-				imageUrl: this.url ? this.url:'/images/image-not-found-med-2.jpg'
+				imageUrl: this.url ? this.url:'/images/image-not-found-med-2.jpg',
+				usersInfo: this.props.usersInfoModel.attributes
 				
 			})
 
@@ -41,14 +64,11 @@ const VinylPostingForm = React.createClass({
 
 		},
 
-	
-
 		render: function() {
 			return (
 				
 				<div className="vinylPostingForm">
 					<form onSubmit = {this._handleCompose}>
-						<input type = 'text' name = 'name' placeholder = 'enter your name' /> 
 						<input type = 'text' name = 'title' placeholder = 'Enter the name of the album' />
 						<input type = 'text' name = 'artist' placeholder = 'Enter the artist' />
 						<input type = 'text' name = 'year' placeholder = 'Enter the year produced' />

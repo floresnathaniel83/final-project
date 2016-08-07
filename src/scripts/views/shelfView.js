@@ -4,7 +4,6 @@ import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import Header from './header'
 import {User, VinylModel, VinylCollection} from '../models/models'
-import $ from 'jquery'
 
 const ShelfView = React.createClass({
 	getInitialState: function () {
@@ -30,6 +29,7 @@ const ShelfView = React.createClass({
 	},
 
 	render: function () {
+		console.log( )
 		return (
 				<div className = 'shelf'>
 					<Header />
@@ -42,7 +42,7 @@ const ShelfView = React.createClass({
 
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
-		//console.log(this.props.vinylColl.models[1].get('name'))
+		//console.log(this.props.vinylColl.models[0].attributes) //>>> ***having trouble accessing userInfo***
 		return (
 				<div className = 'vinylContainer'>
 									{this.props.vinylColl.map(
@@ -60,7 +60,6 @@ const CollectorsVinyl = React.createClass ({
 		return (
 
 			<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
-				
 				<img src = {this.props.vinylModel.get('imageUrl')}/>
 				<p>title: {this.props.vinylModel.get('title')}</p>
 

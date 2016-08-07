@@ -6,6 +6,7 @@ import ACTIONS from '../ACTIONS'
 //components are like the corporate managers receiving all the information or files or data and sometimes they will speak back to 
 
 const Dashboard = React.createClass({
+	
 	getInitialState: function () {
 		return TRADE_STORE._getData()
 
@@ -29,6 +30,7 @@ const Dashboard = React.createClass({
 	},
 
 	render: function () {
+		console.log(this.state)
 		return (
 				<div className='dashboard' >
 					<Header />
@@ -45,8 +47,6 @@ const CollectorsContainer = React.createClass({
 	render: function() {
 		return (
 			<div className="collectorsContainer">
-
-				<h2>Who would you like to be record pals with?</h2>
 				<h3>Click to view shelf and trade</h3>
 				{this.props.userColl.map(
 					(model) => <Collector userModel = {model} key = {model.id} />)}

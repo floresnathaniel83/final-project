@@ -38,6 +38,8 @@ const RegisterBox = React.createClass({
 
 				<form onSubmit={this._handleRegister} >
 					<h3>Register</h3>
+					<input type="text" name="name"
+          placeholder="enter your name" />
 					<input type="email" name="email"
           placeholder="enter your email" />
 					<input type="password" name="password"

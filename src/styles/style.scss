@@ -7,14 +7,10 @@ a {
 	margin: 3%;
 	text-decoration: none;
 
-
 }
 
 button {
-	color: white;
 	margin: 1%;
-	background-color: #85ccc8;
-    border-color: #85ccc8;
 
 }
 
@@ -55,6 +51,23 @@ textarea {
     padding-top: 6px;
     padding-bottom: 6px;
 }
+.trade {
+	border: 1px solid fuchsia;
+
+}
+#headerContainer{
+	position: relative;
+		.headerImg{
+			position: absolute;
+			width: 50px;
+			left: 47%;
+    		bottom: 57%;
+
+		}
+
+}
+
+
 
 .hidden {
 	display: none;

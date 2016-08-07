@@ -100,7 +100,6 @@ let Trade = require('../db/schema.js').Trade
           })
         })
 
-      apiRouter.get
       //TRADE SERVER ROUTES
       //>>> posts trade
       apiRouter.post('/trades', function(request, response) {
@@ -114,6 +113,18 @@ let Trade = require('../db/schema.js').Trade
             }
           })
         })
+
+       apiRouter.put('/trades/:_id', function(request,response){
+       Trade.findByIdAndUpdate(request.params._id, request.body, function(error, records){
+        if(error) {
+            response.send(error)
+        }
+        else {
+            response.json(records)
+        }
+    })
+
+})
       //>>> gets all trades 
       apiRouter.get('/trades', function(request, response) {
         console.log(request.query)
@@ -148,5 +159,15 @@ let Trade = require('../db/schema.js').Trade
             }
           })
         })
+
+      apiRouter.delete('/trades/:_id', function(req, res){
+      Trade.remove({ _id: req.params._id}, (err) => {
+        if(err) return res.json(err)
+        res.json({
+          msg: `record ${req.params._id} successfully deleted`,
+          _id: req.params._id
+        })
+      })  
+    })
 
 module.exports = apiRouter
