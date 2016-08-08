@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './header'
+import MyVinylView from './myVinylView'
 import {User, UserModel, UserCollection} from '../models/models'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
@@ -34,6 +35,7 @@ const Dashboard = React.createClass({
 		return (
 				<div className='dashboard' >
 					<Header />
+					<MyVinylView />
 					<CollectorsContainer userColl = {this.state.userCollection} />
 					
 				</div>

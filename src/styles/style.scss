@@ -1,17 +1,23 @@
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
+
+}
+
+body {
+	background-color: orange
 }
 
 a {
-	margin: 3%;
+	margin: 2%;
 	text-decoration: none;
 
 }
 
 button {
-	margin: 1%;
-
+	 color: #FFF;
+	 background-color: #6d9ed8;
+	 display: block
 }
 
 p {
@@ -34,6 +40,12 @@ h5 {
 
 }
 
+h3 {
+	text-align: center;
+	padding: 1%
+
+}
+
 input {
     height: 38px;
     width: 82%;
@@ -52,33 +64,29 @@ textarea {
     padding-bottom: 6px;
 }
 
-#pending {
-	//position: absolute;
-
-}
-
-#reject {
-	//border: none;
-
-
-}
-
-#accept {
-	//border: none;
-	
-}
-
 .button.button-primary {
 	    color: #FFF;
 	    background-color: #6d9ed8;
-	    border-color: #58a78d;
+	    border-color: 10px solid mediumspringgreen;
 
 }
 
-.trade {
-	border: 1px solid fuchsia;
+.outgoingTradesContainer {
+	border: 10px solid #58a78d;
+	padding: 5%;
+	background-color: steelblue;
+	opacity: 0.8
 
 }
+
+.incomingTradesContainer {
+	border: 10px solid #58a78d;
+	padding: 5%;
+	background-color: steelblue;
+	opacity: 0.8
+
+}
+
 #headerContainer{
 	position: relative;
 		.headerImg{
@@ -91,16 +99,18 @@ textarea {
 
 }
 
-
-
 .hidden {
 	display: none;
 }
 
+
+
 .collectorsContainer {
 	.collector {
-		border: 3px solid #33C3F0;
-		background: white;
+		border: 10px solid #58a78d;
+		padding: 5%;
+		background-color: steelblue;
+		opacity: 0.8;
 		width: 30%;
 		margin: 3% auto;
 		padding: 2%;
@@ -118,8 +128,33 @@ textarea {
 		}
 }
 
+.vinylContainer {
+	border: 10px solid #58a78d;
+	padding: 5%;
+	background-color: steelblue;
+	opacity: 0.8
+
+}
+
+.detailContainer {
+	border: 10px solid #58a78d;
+	padding: 5%;
+	background-color: steelblue;
+	opacity: 0.8
+
+}
+
+.tradeContainer {
+	border: 10px solid #58a78d;
+	padding: 5%;
+	background-color: steelblue;
+	opacity: 0.8
+
+}
+
 	.myVinylContainer { //side-panel
-		position: absolute; 
+		position: fixed; 
+		transition: 1s transform ease;
 	    top: 5px; 
 	    z-index: 10; 
 	    opacity: 0.9; 
@@ -130,8 +165,6 @@ textarea {
 	    color: #fff; 
 	    text-shadow: 1px 1px #D35400;
 	    font-weight: 700;
-	    right: 14%;
-	  
 
 			.vinyl-list {
 				position: absolute;

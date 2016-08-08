@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import Header from './header'
+import MyVinylView from './myVinylView'
 import {TradesModel, TradesCollecton, User} from '../models/models'
 
 
@@ -36,6 +37,7 @@ const AllTradesView = React.createClass({
 		return (
 			<div className = 'trade'>
 				<Header />
+				<MyVinylView />
 				<OutgoingTradesContainer outgoingTradesColl= {this.state.tradesCollection.where({offeringUser: User.getCurrentUser()._id})} />
 				<IncomingTradesContainer incomingTradesColl= {this.state.tradesCollection.where({confirmingUser : User.getCurrentUser()._id})} />
 			</div>
@@ -62,7 +64,7 @@ const OutgoingTradesContainer = React.createClass({
 
 const OutgoingTrades = React.createClass({
 	_handleDelete: function () {
-		ACTIONS.deleteTrades(this.props.outgoingTradesModel.get('_id'))
+		ACTIONS.deleteTrades(this.props.outgoingTradesModel)
 
 	},
 
@@ -80,16 +82,16 @@ const OutgoingTrades = React.createClass({
 		}
 
 		return (
-			<div className = 'tradesContainer'>
+			<div className = 'outgoingTradesContainer'>
 				<div className = 'trade'>
-					<h4>I'm Offering</h4>
+					<h3>I'm Offering</h3>
 					<img src = {this.props.outgoingTradesModel.get('vinylTrade').imageUrl} />
 					<p>artist: {this.props.outgoingTradesModel.get('vinylTrade').artist}</p>
-					<h4>I Want</h4>
+					<h3>I Want</h3>
 					<img src = {this.props.outgoingTradesModel.get('vinylWant').imageUrl} />
 					<p>artist: {this.props.outgoingTradesModel.get('vinylWant').artist}</p>
-					<h3 className={acceptClass}>Cool!!! [Marshall] has accepted your offer and will be in contact soon via email..</h3>
-					<h3 className={rejectClass}>Its a no go. Check out what else is on [Marshall's] shelf that may be of interest you!!</h3>
+					<h3 className={acceptClass}>Cool! [User's] has accepted your offer and will be in contact soon. check your email..</h3>
+					<h3 className={rejectClass}>Its a no go. Check out what else is on [User's] shelf that may be of interest you!!</h3>
 					<button onClick={this._handleDelete} className={deleteClass}>X</button>
 
 				</div>
@@ -143,6 +145,8 @@ const IncomingTrades = React.createClass({
 			rejectClass = 'hidden'
 
 		}
+
+
 		/*
 		let styleObj = {}
 		if (this.props.incomingTradesModel.get('accepted') === 'yes') {
@@ -154,19 +158,19 @@ const IncomingTrades = React.createClass({
 
 
 		return (
-			<div className = 'tradesContainer'>
+			<div className = 'incomingTradesContainer'>
 				<div className = 'trade'>
-					<h4>User Offers</h4>
+					<h3>User Offers</h3>
 					<img src = {this.props.incomingTradesModel.get('vinylTrade').imageUrl} />
 					<p>artist: {this.props.incomingTradesModel.get('vinylTrade').artist}</p>
-					<h4>User Wants</h4>
+					<h3>User Wants</h3>
 					<img src = {this.props.incomingTradesModel.get('vinylWant').imageUrl} />
 					<p>artist: {this.props.incomingTradesModel.get('vinylWant').artist}</p>
-					<h3 className={acceptClass}>Cool!! contact [rza] at [rza@wutang.com]</h3>
-					<h3 className={rejectClass}>That sucks. Check out what else is on [rza's] shelf that may interest you!!</h3>
-					<button id='accept' onClick={this._handleAccept}>YES</button>
-					<button id='pending' onClick={this._handlePending}>Thinking</button>
-					<button id='reject' onClick={this._handleReject}>NO</button>
+					<h3 className={acceptClass}>Cool! Contact [user] at [user@user.com]</h3>
+					<h3 className={rejectClass}>Check out what else is on [user's] shelf that may be of interest to you!</h3>
+					<button  onClick={this._handleAccept}>YES</button>
+					<button  onClick={this._handlePending}>Thinking</button>
+					<button  onClick={this._handleReject}>NO</button>
 					
 
 				</div>

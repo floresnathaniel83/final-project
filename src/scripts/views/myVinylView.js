@@ -58,11 +58,11 @@ const MyVinylContainer = React.createClass ({
 
 	render : function () {
 		 if ( this.state.isShowing ){
-		     var styleObj = {right: "165px"}
+		     var styleObj = {transform: "translateX(150%)"}
 		     var buttonTxt = "X"
 	    } else {
-		     var styleObj = {right: "-2100px"}
-		     var buttonTxt = "My Shelf"
+		     var styleObj = {transform: "translateX(252%)"}
+		     var buttonTxt = "<"
     }
 
 		return (

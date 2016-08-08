@@ -141,11 +141,8 @@ const ACTIONS = {
 		})
 	 },
 
-	 deleteTrades: function (id) {
-	 	let trade = TRADE_STORE.data.tradesCollection.fetch({
-	 		url: 'api/trades/' + id
-
-		}).then(
+	 deleteTrades: function (model) {
+	 	model.destroy().then(
             (responseData) => {
                 toastr.success('deleting trade!!!')
                 console.log(responseData)

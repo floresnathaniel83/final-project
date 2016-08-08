@@ -64,7 +64,7 @@ const TradeContainer = React.createClass ({
 		}
 
 		return (
-			<div className = 'trade'>
+			<div className = 'tradeContainer'>
 				<h3>TRADE</h3>
 				<div className = 'vinyl'>
 					<h1>I want</h1>
