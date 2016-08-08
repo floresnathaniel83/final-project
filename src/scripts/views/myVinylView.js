@@ -8,8 +8,7 @@ import $ from 'jquery'
 const MyVinylView = React.createClass({
 	getInitialState: function () {
 		return TRADE_STORE._getData()
-		
-
+			
 	},
 	
 	componentWillMount: function () {
@@ -32,20 +31,46 @@ const MyVinylView = React.createClass({
 	render: function () {
 		return (
 				<div className = 'myVinylView'>
-					<h3>My Vinyl</h3>
 					<MyVinylContainer vinylColl = {this.state.vinylCollection} /> 
+
 				</div>
 			)
 		}
 	})
 
 const MyVinylContainer = React.createClass ({
+	getInitialState: function () {
+		return {
+	      isShowing: false,
+	      buttonTxt: "X"
+    	}
+
+
+	},
+
+	_toggleMenu: function(){
+	    if(this.state.isShowing){
+	      this.setState({ isShowing: false  })
+	    } else {
+	        this.setState({ isShowing: true  })
+	    }
+	},	
+
 	render : function () {
+		 if ( this.state.isShowing ){
+		     var styleObj = {right: "165px"}
+		     var buttonTxt = "X"
+	    } else {
+		     var styleObj = {right: "-2100px"}
+		     var buttonTxt = "My Shelf"
+    }
+
 		return (
-				<div className = 'vinylContainer'>
+				<div style={styleObj} className = 'myVinylContainer'>{/*side panel*/}
+					<h3>My Shelf</h3>
 					{this.props.vinylColl.map(
 					(model) => <MyVinyl vinylModel = {model} key = {model.id} />)}
-
+					<button onClick={this._toggleMenu}>{buttonTxt}</button>
 				</div>
 
 			)
@@ -57,23 +82,30 @@ const MyVinylContainer = React.createClass ({
 
 const MyVinyl = React.createClass ({
 
+
 	handleTradeToggle: function (e) {
 		e.preventDefault()
 		ACTIONS.selectVinylToOffer(this.props.vinylModel)
 	
-	},	
+	},
 
 	render: function () { 
 		return (
 
 			<div onClick={this.handleTradeToggle} className = 'vinyl'>
-				<img src = {this.props.vinylModel.get('imageUrl')} />
-				<p>Artist: {this.props.vinylModel.get('artist')}</p>
-				<p>Title: {this.props.vinylModel.get('title')}</p>
-				<p>Year: {this.props.vinylModel.get('year')}</p>
-				<p>Record Store: {this.props.vinylModel.get('location')}</p>
-				<p>Artist Description: {this.props.vinylModel.get('artistDesc')}</p>
+				<div className = 'vinyl'>
+					
+					<ul>
+						<li><img src = {this.props.vinylModel.get('imageUrl')} /></li>
+						<li>Artist: {this.props.vinylModel.get('artist')}</li>
+						<li>Title: {this.props.vinylModel.get('title')}</li>
+						<li>Year: {this.props.vinylModel.get('year')}</li>
+						<li>Record Store: {this.props.vinylModel.get('location')}</li>
+						<li>Artist Description: {this.props.vinylModel.get('artistDesc')}</li>
 
+					</ul>
+				</div>
+				
 			</div>
 
 			)

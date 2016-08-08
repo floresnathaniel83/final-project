@@ -89,7 +89,7 @@ const OutgoingTrades = React.createClass({
 					<img src = {this.props.outgoingTradesModel.get('vinylWant').imageUrl} />
 					<p>artist: {this.props.outgoingTradesModel.get('vinylWant').artist}</p>
 					<h3 className={acceptClass}>Cool!!! [Marshall] has accepted your offer and will be in contact soon via email..</h3>
-					<h3 className={rejectClass}>Its a no go. Check out what else is on [Marshall's] shelf that may interest you!!</h3>
+					<h3 className={rejectClass}>Its a no go. Check out what else is on [Marshall's] shelf that may be of interest you!!</h3>
 					<button onClick={this._handleDelete} className={deleteClass}>X</button>
 
 				</div>
@@ -114,9 +114,9 @@ const IncomingTradesContainer = React.createClass({
 })
 
 const IncomingTrades = React.createClass({
+
 	_handleAccept: function () {
 		ACTIONS.acceptTrades(this.props.incomingTradesModel)
-
 
 	},
 
@@ -127,6 +127,7 @@ const IncomingTrades = React.createClass({
 
 	_handlePending: function () {
 		ACTIONS.pendingTrades(this.props.incomingTradesModel)
+
 	},
 
 	render: function () {
@@ -142,7 +143,14 @@ const IncomingTrades = React.createClass({
 			rejectClass = 'hidden'
 
 		}
+		/*
+		let styleObj = {}
+		if (this.props.incomingTradesModel.get('accepted') === 'yes') {
+			styleObj = {left: "30px"}
+		}
+		*/
 
+		
 
 
 		return (
@@ -156,9 +164,9 @@ const IncomingTrades = React.createClass({
 					<p>artist: {this.props.incomingTradesModel.get('vinylWant').artist}</p>
 					<h3 className={acceptClass}>Cool!! contact [rza] at [rza@wutang.com]</h3>
 					<h3 className={rejectClass}>That sucks. Check out what else is on [rza's] shelf that may interest you!!</h3>
-					<button onClick={this._handleAccept}>YES</button>
-					<button onClick={this._handlePending}>PENDING</button>
-					<button onClick={this._handleReject}>NO</button>
+					<button id='accept' onClick={this._handleAccept}>YES</button>
+					<button id='pending' onClick={this._handlePending}>Thinking</button>
+					<button id='reject' onClick={this._handleReject}>NO</button>
 					
 
 				</div>

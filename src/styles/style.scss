@@ -51,6 +51,30 @@ textarea {
     padding-top: 6px;
     padding-bottom: 6px;
 }
+
+#pending {
+	//position: absolute;
+
+}
+
+#reject {
+	//border: none;
+
+
+}
+
+#accept {
+	//border: none;
+	
+}
+
+.button.button-primary {
+	    color: #FFF;
+	    background-color: #6d9ed8;
+	    border-color: #58a78d;
+
+}
+
 .trade {
 	border: 1px solid fuchsia;
 
@@ -94,23 +118,59 @@ textarea {
 		}
 }
 
-.vinylContainer {
-	.vinyl {
-		border: 3px solid #33C3F0;
-		background: white;
-		width: 30%;
-		margin: 3% auto;
-		padding: 2%;
-		position: relative;
-	}
+	.myVinylContainer { //side-panel
+		position: absolute; 
+	    top: 5px; 
+	    z-index: 10; 
+	    opacity: 0.9; 
+	    border: 3px solid #D35400;
+	    background: #58a78d;
+	    padding: 5px;
+	    width: 700px;
+	    color: #fff; 
+	    text-shadow: 1px 1px #D35400;
+	    font-weight: 700;
+	    right: 14%;
+	  
 
-		p {
-			margin: 1% 0;
-		}
+			.vinyl-list {
+				position: absolute;
+		        height: 100%;
+		        width: 100%;
+		        overflow-y: scroll;
 
-		.vinyl {
-			display: inline-block;
-			vertical-align: center;
-			margin-right: 10%;
+			},
+
+				 ul{
+	            	list-style-type: none;
+
+		            >li{
+		                padding: 5px;
+		                border-bottom: #ddd 1px solid;
+		                border-left: #ddd 6px solid;
+		                margin: 8px 0;
+		            }
+	        	}
+	 
+			    button {
+			        position: absolute;
+			        top: -2px;
+			        right: 101%;
+			        font-size: 20px;
+			        background: #F9BF3B;
+			        border: 0px;
+			        border-radius: 0;
+			        width: 175px;
+			        z-index: 13;
+			    }
+
+				p {
+					margin: 1% 0;
+				}
+
+				.vinyl {
+					display: inline-block;
+					vertical-align: center;
+					margin-right: 10%;
+				}
 		}
-}

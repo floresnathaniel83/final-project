@@ -21,9 +21,9 @@ const NavBar = React.createClass({
 		return (
 			<div id="navBar">
 				<a className="button button-primary"
-        href="#login">Log In</a>
+        href="#login">Home</a>
 				<a className="button button-primary"
-        href="#home">Home</a>
+        href="#home">Collector Profiles</a>
         		<a className="button button-primary"
         href="#vinyl/postVinyl">Post Vinyl</a>
         		<a className="button button-primary" 
