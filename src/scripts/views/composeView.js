@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import NavBar from './navBar'
 import ACTIONS from '../ACTIONS'
 import TRADE_STORE from '../STORE'
 import {UserModel, User} from '../models/models'
@@ -31,7 +31,7 @@ const ComposeView = React.createClass({
 	 	console.log(this.state.userModel)
 	 	return (
 	 		<div className="composeView" >
-	 			<Header />
+	 			<NavBar />
 	 			<h3>FILL YOUR SHELF UP!</h3>
 	 			<VinylPostingForm usersInfoModel={this.state.userModel}/>
 	 		</div>
@@ -50,9 +50,8 @@ const VinylPostingForm = React.createClass({
 				year: e.currentTarget.year.value,
 				location: e.currentTarget.location.value,
 				artistDesc: e.currentTarget.artistDesc.value,
-				imageUrl: this.url ? this.url:'/images/image-not-found-med-2.jpg',
-				usersInfo: this.props.usersInfoModel.attributes
-				
+				imageUrl: this.url ? this.url :'/images/image-not-found-med-2.jpg',
+				usersInfo: User.getCurrentUser()
 			})
 
 		},

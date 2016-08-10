@@ -14,7 +14,7 @@ const usersSchema = new Schema({
   password:  {type: String},
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
   name: {type: String, required: true},
-  favImgUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y'},
+  favImgUrl: {type: String, default: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&f=y'},
   genreTags: {type: [String], required: true}, //>>>can be used to search tags
   journeyDesc: {type: String, required: true},
   vinylMissed: {type: String, required: true},

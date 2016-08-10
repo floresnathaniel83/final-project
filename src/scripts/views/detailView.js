@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
-import Header from './header'
+import NavBar from './navBar'
 import {User, VinylModel, VinylCollection, TradesModel} from '../models/models'
 import $ from 'jquery'
 
@@ -33,8 +33,8 @@ const DetailView = React.createClass({
 	render: function () {
 		//console.log('rendering detail view', this.state.vinylModel)
 		return (
-				<div className = 'detail'> 
-					<Header />
+				<div className = 'vinylContainer'> 
+					<NavBar />
 					<Detail vinylModel = {this.state.vinylModel} />
 
 				</div>
@@ -47,17 +47,17 @@ const DetailView = React.createClass({
 
 		render : function () {
 			return (
-					<div className = 'detailContainer'>
-						<img src = {this.props.vinylModel.get('imageUrl')}/>
-						<p>artist: {this.props.vinylModel.get('artist')}</p>
-						<p>Year: {this.props.vinylModel.get('year')}</p>
-						<p>Record Store: {this.props.vinylModel.get('location')}</p>
-						<p>Artist Description: {this.props.vinylModel.get('artistDesc')}</p>
-						<a href={`#vinyl/offer/${this.props.vinylModel.get('_id')}`} className="button button-primary">Trade</a>
-
-
-					</div> 
-
+				
+							<div className = 'vinyl'>
+								<ul>
+									<li><img src = {this.props.vinylModel.get('imageUrl')}/></li>
+									<li>artist: {this.props.vinylModel.get('artist')}</li>
+									<li>Year: {this.props.vinylModel.get('year')}</li>
+									<li>Record Store: {this.props.vinylModel.get('location')}</li>
+									<li>Artist Description: {this.props.vinylModel.get('artistDesc')}</li>
+									<a href={`#vinyl/offer/${this.props.vinylModel.get('_id')}`} id='tradeButton'>Trade</a>
+								</ul>
+							</div> 
 
 				)
 

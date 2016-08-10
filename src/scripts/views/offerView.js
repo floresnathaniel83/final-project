@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
-import Header from './header'
+import NavBar from './navBar'
 import MyVinylView from './myVinylView'
 import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
@@ -33,7 +33,7 @@ const OfferView = React.createClass ({
 		console.log(this.state)
 		return (
 			<div className = 'trade'>
-				<Header />
+				<NavBar />
 				<MyVinylView />
 				<TradeContainer 
 					offeredVinylModel={this.state.vinylOffered} //>>> new shit set on state
@@ -64,17 +64,31 @@ const TradeContainer = React.createClass ({
 		}
 
 		return (
-			<div className = 'tradeContainer'>
+			<div className = 'vinylContainer'>
 				<h3>TRADE</h3>
-				<div className = 'vinyl'>
-					<h1>I want</h1>
-					<img src = {this.props.wantedVinylModel.get('imageUrl')} />
-					<p>artist: {this.props.wantedVinylModel.get('artist')}</p>
-				</div>
+					
+					<div className = 'vinyl'>
+						<h1>I want</h1>
+							<ul>
+								<li><img src={this.props.wantedVinylModel.get('imageUrl')} /></li>
+								<li>artist: {this.props.wantedVinylModel.get('artist')}</li>
+								<li>Title: {this.props.wantedVinylModel.get('title')}</li>
+								<li>Year: {this.props.wantedVinylModel.get('year')}</li>
+								<li>Record Store: {this.props.wantedVinylModel.get('location')}</li>
+								<li>Artist Description: {this.props.wantedVinylModel.get('artistDesc')}</li>
+							</ul>
+					</div>
+				
 				<div className = 'vinyl'>
 					<h1>I offer</h1>
-					<img src = {this.props.offeredVinylModel.get('imageUrl')} />
-					<p>artist:{this.props.offeredVinylModel.get('artist')}</p>
+						<ul>
+								<li><img src={this.props.offeredVinylModel.get('imageUrl')} /></li>
+								<li>artist: {this.props.offeredVinylModel.get('artist')}</li>
+								<li>Title: {this.props.offeredVinylModel.get('title')}</li>
+								<li>Year: {this.props.offeredVinylModel.get('year')}</li>
+								<li>Record Store: {this.props.offeredVinylModel.get('location')}</li>
+								<li>Artist Description: {this.props.offeredVinylModel.get('artistDesc')}</li>
+						</ul>
 				</div>
 				<button onClick ={this._handleTrade} className={buttonClass}>make offer</button>
 	

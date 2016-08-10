@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
-import Header from './header'
+import NavBar from './navBar'
 import {User, VinylModel, VinylCollection} from '../models/models'
 
 const ShelfView = React.createClass({
@@ -32,7 +32,7 @@ const ShelfView = React.createClass({
 		console.log( )
 		return (
 				<div className = 'shelf'>
-					<Header />
+					<NavBar />
 					<CollectorsVinylContainer vinylColl = {this.state.vinylCollection} />
 					
 				</div>
@@ -42,9 +42,10 @@ const ShelfView = React.createClass({
 
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
-		//console.log(this.props.vinylColl.models[0].attributes) //>>> ***having trouble accessing userInfo***
+		console.log(this.props.vinylColl.models[0]) //>>> ***having trouble accessing userInfo***
 		return (
 				<div className = 'vinylContainer'>
+
 									{this.props.vinylColl.map(
 					(model) => <CollectorsVinyl vinylModel = {model} key = {model.id} />)}
 
@@ -57,14 +58,22 @@ const CollectorsVinylContainer = React.createClass ({
 
 const CollectorsVinyl = React.createClass ({
 	render: function () {
+		console.log(this.props.vinylModel)
 		return (
-			<div className = 'vinylContainer'>
-				<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
-					<img src = {this.props.vinylModel.get('imageUrl')}/>
-					<p>title: {this.props.vinylModel.get('title')}</p>
-				</a>
-				
-			</div>
+			<div className="container body">
+  				<div className="row">
+    				<div className="col-md-9 col-sm-offset-2">
+						<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
+							<ul>
+								<li><img src = {this.props.vinylModel.get('imageUrl')}/></li>
+								<li>Artist: {this.props.vinylModel.get('artist')}</li>
+								<li>title: {this.props.vinylModel.get('title')}</li>
+
+							</ul>
+						</a>
+					</div>
+				</div>
+			</div>		
 			)
 	}
 

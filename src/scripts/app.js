@@ -9,7 +9,7 @@ import OfferView from './views/offerView'
 import AllTradesView from './views/allTradesView'
 import LoginView from './views/loginView'
 import ComposeView from './views/composeView'
-import Header from './views/header'
+import NavBar from './views/navBar'
 import {User, VinylModel} from './models/models'
 //controls views(where the user is at in the app)
 

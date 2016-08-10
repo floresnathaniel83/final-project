@@ -5,24 +5,33 @@
 }
 
 body {
-	background-color: orange
+	background-color: azure;
+	padding-top: 70px;
 }
 
 a {
-	margin: 2%;
-	text-decoration: none;
+	margin: 1%;
+    padding: 3%;
+    background-color: #c0d6e4;
+    color: #004878;
+    text-decoration: none;
 
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 button {
-	 color: #FFF;
-	 background-color: #6d9ed8;
-	 display: block
+	 color: #004878;
+	 background-color: #c0d6e4;
+	 display: inline-block;
+	 margin: 0.5;
 }
 
 p {
 	margin: 1%;
-	color: black;
+	color: #004878;
 	font-weight: inherit;
 
 }
@@ -30,26 +39,28 @@ p {
 h1 {
 	font-size: 50px;
 	text-align: center;
-	
+	color: #004878
+}
+
+h3 {
+	padding: 1%;
+    color: #004878;
+    margin: 5%;
+    text-align: center;
 }
 
 h5 {
-	color: #33C3F0;
+	color: #004878;
 	margin: 0%;
 	font-weight: 500
 
 }
 
-h3 {
-	text-align: center;
-	padding: 1%
-
-}
-
 input {
     height: 38px;
-    width: 82%;
+    width: 100%;
     padding: 6px 10px;
+    margin-bottom: 1%;
     background-color: #fff;
     border: 1px solid #D1D1D1;
     border-radius: 4px;
@@ -59,43 +70,71 @@ input {
 
 textarea {
     min-height: 200px;
-    min-width: 82%;
+    min-width: 100%;
     padding-top: 6px;
     padding-bottom: 6px;
 }
 
-.button.button-primary {
-	    color: #FFF;
-	    background-color: #6d9ed8;
-	    border-color: 10px solid mediumspringgreen;
+img {
+	width: 35%;
 
 }
 
+#piSymbol {
+	font-size: 200px;
+	color: #004878
+
+}
+
+#navBar {
+	width: 45%;
+    margin: auto;
+
+}
+
+#tradeButton {
+	margin: 0%;
+    padding: 3%;
+    background-color: #004878;
+    color: #c0d6e4;
+    text-decoration: none;
+
+}
+
+#delete {
+	background-color: #004878;
+    color: #c0d6e4;
+    display: inline-block;
+
+}
+
+.confirm {
+	background-color: #004878;
+    color: #c0d6e4;
+    display: inline-block;
+
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #004878;
+}
+
+
+
 .outgoingTradesContainer {
-	border: 10px solid #58a78d;
+	border: 10px solid #004878;
 	padding: 5%;
-	background-color: steelblue;
-	opacity: 0.8
+	background-color: #c0d6e4;
 
 }
 
 .incomingTradesContainer {
-	border: 10px solid #58a78d;
+	border: 10px solid  #004878;
 	padding: 5%;
-	background-color: steelblue;
-	opacity: 0.8
-
-}
-
-#headerContainer{
-	position: relative;
-		.headerImg{
-			position: absolute;
-			width: 50px;
-			left: 47%;
-    		bottom: 57%;
-
-		}
+	background-color: #c0d6e4;
+	
 
 }
 
@@ -106,81 +145,116 @@ textarea {
 
 
 .collectorsContainer {
+
 	.collector {
-		border: 10px solid #58a78d;
+		border: 10px solid #004878;
 		padding: 5%;
-		background-color: steelblue;
-		opacity: 0.8;
-		width: 30%;
+		background-color: #c0d6e4;
+		width: 60%;
 		margin: 3% auto;
 		padding: 2%;
 		position: relative;
+		font-weight: 700;
+		display: inline-block;
+		vertical-align: center;
+		margin-right: 10%;
 	}
+			ul {
+	            list-style-type: none;
 
-		p {
-			margin: 1% 0;
-		}
-
-		.collector {
-			display: inline-block;
-			vertical-align: center;
-			margin-right: 10%;
-		}
+		            >li{
+		                padding: 5px;
+		                border-bottom: #004878 1px solid;
+		                border-left: #004878 6px solid;
+		                margin: 8px 0;
+		            }
+	        	}
 }
 
 .vinylContainer {
-	border: 10px solid #58a78d;
-	padding: 5%;
-	background-color: steelblue;
-	opacity: 0.8
+
+		.vinyl {
+			border: 10px solid #004878;
+			padding: 5%;
+			background-color: #c0d6e4;
+			width: 60%;
+			margin: 3% auto;
+			padding: 2%;
+			position: relative;
+			font-weight: 700;
+			display: inline-block;
+			vertical-align: center;
+			margin-right: 10%;
+			color: #004878;
+	}
+			ul {
+	            list-style-type: none;
+
+		            >li{
+		                padding: 5px;
+		                border-bottom: #004878 1px solid;
+		                border-left: #004878 6px solid;
+		                margin: 8px 0;
+		            }
+	        	}
 
 }
 
 .detailContainer {
-	border: 10px solid #58a78d;
+	border: 10px solid #004878;
 	padding: 5%;
-	background-color: steelblue;
-	opacity: 0.8
+	background-color: #c0d6e4;
+	
 
 }
 
 .tradeContainer {
-	border: 10px solid #58a78d;
+	border: 10px solid #004878;
 	padding: 5%;
-	background-color: steelblue;
-	opacity: 0.8
+	background-color: #c0d6e4;
 
 }
 
-	.myVinylContainer { //side-panel
+	.myVinylContainer { 
 		position: fixed; 
 		transition: 1s transform ease;
 	    top: 5px; 
 	    z-index: 10; 
 	    opacity: 0.9; 
-	    border: 3px solid #D35400;
-	    background: #58a78d;
+	    border: 3px solid #004878;
+	    background: #c0d6e4;
 	    padding: 5px;
 	    width: 700px;
-	    color: #fff; 
-	    text-shadow: 1px 1px #D35400;
+	    height: 100%;
+	    color: #004878; 
 	    font-weight: 700;
+	    	
+	    	.sidebar-content {
+	    		overflow-y: scroll;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+
+	    	}
 
 			.vinyl-list {
+				overflow-y: scroll;
 				position: absolute;
 		        height: 100%;
 		        width: 100%;
-		        overflow-y: scroll;
+		       
 
-			},
+			}
 
 				 ul{
 	            	list-style-type: none;
 
 		            >li{
 		                padding: 5px;
-		                border-bottom: #ddd 1px solid;
-		                border-left: #ddd 6px solid;
+		                border-bottom: #004878 1px solid;
+		                border-left: #004878 6px solid;
 		                margin: 8px 0;
 		            }
 	        	}
@@ -190,8 +264,8 @@ textarea {
 			        top: -2px;
 			        right: 101%;
 			        font-size: 20px;
-			        background: #F9BF3B;
-			        border: 0px;
+			        background: #c0d6e4;
+			        border: 3px solid #004878;
 			        border-radius: 0;
 			        width: 175px;
 			        z-index: 13;

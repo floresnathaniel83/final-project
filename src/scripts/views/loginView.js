@@ -1,6 +1,5 @@
 import React from 'react'
 import ACTIONS from '../ACTIONS'
-import Header from './header'
 
 const LoginView = React.createClass({
 	render: function() {
@@ -10,6 +9,18 @@ const LoginView = React.createClass({
 				<RegisterBox />
 				<LoginBox />
 
+			</div>
+			)
+	}
+})
+
+const Header = React.createClass({
+
+	render: function() {
+		return (
+			<div className="page-header">
+ 				<h1>Vinyl Pi<p>π</p></h1>
+			
 			</div>
 			)
 	}
@@ -47,7 +58,7 @@ const RegisterBox = React.createClass({
           			<input type="text" name="genreTags" placeholder="enter your fav genres" />
           			<p>How did you get into collecting records?</p>
           			<input type="text" name="journeyDesc" />
-          			<p>What is one record that got away, but wished you bought?</p>
+          			<p>What is one record that got away that you wished you bought?</p>
           			<input type="text" name="vinylMissed" />
           			<p>What is the best dollar bin record you bought?</p>
           			<input type="text" name="vinylDollar" />
