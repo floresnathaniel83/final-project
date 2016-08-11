@@ -43,7 +43,6 @@ const ShelfView = React.createClass({
 
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
-		console.log(this.props.vinylColl.models[0].get('usersInfo').name) //>>> ***having trouble accessing userInfo***
 		return (
 				<div className = 'vinylContainer'>
 					<h3>{this.props.vinylColl.models[0].get('usersInfo').name}'s Collection</h3>
@@ -59,7 +58,6 @@ const CollectorsVinylContainer = React.createClass ({
 
 const CollectorsVinyl = React.createClass ({
 	render: function () {
-		console.log(this.props.vinylModel)
 		return (
 			<div className="container body">
   				<div className="row">
