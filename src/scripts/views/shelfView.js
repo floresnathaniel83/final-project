@@ -4,6 +4,7 @@ import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
 import {User, VinylModel, VinylCollection} from '../models/models'
+import $ from 'jquery'
 
 const ShelfView = React.createClass({
 	getInitialState: function () {
@@ -42,10 +43,10 @@ const ShelfView = React.createClass({
 
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
-		console.log(this.props.vinylColl.models[0]) //>>> ***having trouble accessing userInfo***
+		console.log(this.props.vinylColl.models[0].get('usersInfo').name) //>>> ***having trouble accessing userInfo***
 		return (
 				<div className = 'vinylContainer'>
-
+					<h3>{this.props.vinylColl.models[0].get('usersInfo').name}'s Collection</h3>
 									{this.props.vinylColl.map(
 					(model) => <CollectorsVinyl vinylModel = {model} key = {model.id} />)}
 

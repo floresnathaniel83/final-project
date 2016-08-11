@@ -50,6 +50,7 @@ const AllTradesView = React.createClass({
 
 const IncomingTradesContainer = React.createClass({
 	render: function () {
+		console.log(this.props.incomingTradesColl)
 		return (
 			<div className = 'trade'>
 				<h3>Incoming Trades</h3>
@@ -96,14 +97,14 @@ const IncomingTrades = React.createClass({
 		return (
 			<div className = 'vinylContainer'>
 				<div className = 'vinyl'>
-					<h3>User Offers</h3>
+					<h3>{this.props.incomingTradesModel.get('vinylTrade').usersInfo.name} Offers</h3>
 					<img src = {this.props.incomingTradesModel.get('vinylTrade').imageUrl} />
 					<p>artist: {this.props.incomingTradesModel.get('vinylTrade').artist}</p>
-					<h3>User Wants</h3>
+					<h3>{this.props.incomingTradesModel.get('vinylTrade').usersInfo.name} Wants</h3>
 					<img src = {this.props.incomingTradesModel.get('vinylWant').imageUrl} />
 					<p>artist: {this.props.incomingTradesModel.get('vinylWant').artist}</p>
-					<h3 className={acceptClass}>Cool! Contact [user] at [user@user.com]</h3>
-					<h3 className={rejectClass}>Check out what else is on [user's] shelf that may be of interest to you!</h3>
+					<h3 className={acceptClass}>Cool! Contact {this.props.incomingTradesModel.get('vinylTrade').usersInfo.name} at {this.props.incomingTradesModel.get('vinylTrade').usersInfo.email}</h3>
+					<h3 className={rejectClass}>Check out what else is on {this.props.incomingTradesModel.get('vinylTrade').usersInfo.name}'s  shelf that may be of interest to you!</h3>
 					<button className='confirm' onClick={this._handleAccept}>YES</button>
 					<button  className='confirm' onClick={this._handleReject}>NO</button>
 					
@@ -157,8 +158,8 @@ const OutgoingTrades = React.createClass({
 					<h3>I Want</h3>
 					<img src = {this.props.outgoingTradesModel.get('vinylWant').imageUrl} />
 					<p>artist: {this.props.outgoingTradesModel.get('vinylWant').artist}</p>
-					<h3 className={acceptClass}>Cool! [User's] has accepted your offer and will be in contact soon. check your email..</h3>
-					<h3 className={rejectClass}>Its a no go. Check out what else is on [User's] shelf that may be of interest you!!</h3>
+					<h3 className={acceptClass}>Cool! {this.props.outgoingTradesModel.get('vinylWant').usersInfo.name} has accepted your offer and will be in contact soon. check your email..</h3>
+					<h3 className={rejectClass}>Its a no go. Check out what else is on {this.props.outgoingTradesModel.get('vinylWant').usersInfo.name}'s shelf that may be of interest you!!</h3>
 					<button id = 'delete' onClick={this._handleDelete} className={deleteClass}>X</button>
 
 				</div>

@@ -49,7 +49,7 @@ const CollectorsContainer = React.createClass({
 	render: function() {
 		return (
 			<div className="collectorsContainer">
-				<h3>Click to view shelf and trade</h3>
+				<h3 id='shelfHeader'>Click to view shelf and trade</h3>
 				{this.props.userColl.map(
 					(model) => <Collector userModel = {model} key = {model.id} />)}
 			</div>
