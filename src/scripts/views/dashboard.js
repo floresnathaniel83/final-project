@@ -46,11 +46,11 @@ const Dashboard = React.createClass({
 const CollectorsContainer = React.createClass({
 	
 	render: function() {
-
-		
+		console.log()
 
 		return (
 			<div className="collectorsContainer">
+				<h3>Welcome {User.getCurrentUser().name}!</h3>
 				<h3>Click to view shelf and trade</h3>
 				{this.props.userColl.map(
 					(model) => <Collector userModel = {model} key = {model.id} />)}
