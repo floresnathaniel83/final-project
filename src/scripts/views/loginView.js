@@ -1,6 +1,6 @@
 import React from 'react'
 import ACTIONS from '../ACTIONS'
-
+//adjust styling to landing page layout may copy facebook or instagram or make my own with full background image
 const LoginView = React.createClass({
 	render: function() {
 		return (
@@ -45,7 +45,7 @@ const RegisterBox = React.createClass({
 	render: function() {
 		return (
 			<div className="loginBox register">
-				<h3>"THE MORE INFORMATION ONE CAN GATHER ABOUT A PARTICULAR SUBJECT, THE GREATER THE UNDERSTANDING WILL BE. THE VINYL RECORD IS FREQUENTLY THE ONLY PROOF THAT A CREATIVE HUMAN EVENT ACTUALLY TOOK PLACE."</h3>
+				<h3>"Sign up to see records from other collectors and trade with them."</h3>
 
 				<form onSubmit={this._handleRegister} >
 					<h3>Register</h3>
