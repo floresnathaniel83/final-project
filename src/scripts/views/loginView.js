@@ -45,7 +45,7 @@ const RegisterBox = React.createClass({
 	render: function() {
 		return (
 			<div className="loginBox register">
-				<h3>"Sign up to see records from other collectors and trade with them."</h3>
+				<h3>"Sign up to post your record collection and see records from other collectors and trade with them."</h3>
 
 				<form onSubmit={this._handleRegister} >
 					<h3>Register</h3>
