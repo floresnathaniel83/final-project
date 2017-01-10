@@ -7,7 +7,6 @@ const LoginView = React.createClass({
 			<div className="loginView">
 				<Header />
 				<RegisterBox />
-				<LoginBox />
 
 			</div>
 			)
@@ -15,13 +14,26 @@ const LoginView = React.createClass({
 })
 
 const Header = React.createClass({
+	_handleLogin: function(evt) {
+		evt.preventDefault()
+		ACTIONS.logUserIn(evt.target.email.value,evt.target.password.value)
+	
+	},
 
 	render: function() {
 		return (
-			<div className="page-header">
- 				<h1>Vinyl Pi<p>π</p></h1>
+			<header id="page-header">
+				<h1 className='logo'>π</h1>
+ 				<h1>Vinyl Pi</h1>
+ 				<form id='loginBox'onSubmit={this._handleLogin} >
+					<input type="email" name="email" placeholder="enter your email" />
+					<input type="password" name="password" placeholder="enter a password" />
+					<button type="submit">log in!</button>
+
+				</form>
 			
-			</div>
+			</header>
+
 			)
 	}
 })
@@ -45,9 +57,9 @@ const RegisterBox = React.createClass({
 	render: function() {
 		return (
 			<div className="loginBox register">
-				<h3>"Sign up to post your record collection and see records from other collectors and trade with them."</h3>
+				<h3>Sign up to post your record collection and see records from other collectors and trade with them.</h3>
 
-				<form onSubmit={this._handleRegister} >
+				<form id='registerBox' onSubmit={this._handleRegister} >
 					<h3>Register</h3>
 					<input type="text" name="name"
           placeholder="enter your name" />
@@ -68,29 +80,5 @@ const RegisterBox = React.createClass({
 			)
 	}
 })
-
-const LoginBox = React.createClass({
-	_handleLogin: function(evt) {
-		evt.preventDefault()
-		ACTIONS.logUserIn(evt.target.email.value,evt.target.password.value)
-	},
-
-	render: function() {
-		return (
-			<div className="loginBox login">
-				<form onSubmit={this._handleLogin} >
-					<h3>Log in</h3>
-					<input type="email" name="email"
-          placeholder="enter your email" />
-					<input type="password" name="password"
-          placeholder="enter a password" />
-					<button type="submit">log in!</button>
-				</form>
-			</div>
-			)
-	}
-})
-
-
 
 export default LoginView

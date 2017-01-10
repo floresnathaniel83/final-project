@@ -4,9 +4,11 @@
 
 }
 
-body {
+body, html {
 	background-color: azure;
-	padding-top: 70px;
+	margin: 0;
+	padding: 0;
+
 }
 
 a {
@@ -26,12 +28,7 @@ a:hover {
 button {
 	 color: #004878;
 	 background-color: #c0d6e4;
-	 display: block;
-	 margin: 0.5;
-}
-
-.container {
-
+	 height: 38px;
 
 }
 
@@ -43,9 +40,11 @@ p {
 }
 
 h1 {
-	font-size: 50px;
-	text-align: center;
-	color: #004878
+	font-size: 300%;
+	color: azure;
+	display: inline-block;
+	
+
 }
 
 h3 {
@@ -64,22 +63,11 @@ h5 {
 
 input {
     height: 38px;
-    width: 60%;
-    padding: 6px 10px;
-    margin-bottom: 1%;
     background-color: #fff;
-    border: 1px solid #D1D1D1;
-    border-radius: 4px;
-    box-shadow: none;
-    box-sizing: border-box;
-    border: 1px solid #004878;
-    transition: .1s border ease
-}
-
-input:focus {
-	outline: none;
-	border: 3px solid #004878;
-
+    margin: 2%;
+    padding: 2%;
+    width: 40%;
+   
 }
 
 textarea {
@@ -94,8 +82,13 @@ img {
 
 }
 
-form {
-	 text-align: -webkit-center;
+#loginBox {
+	display: inline-block;
+    float: right;
+    margin-top: 125px;
+    width: 50%;
+    white-space: nowrap;
+    padding-right: 2%;
 
 }
 
@@ -127,6 +120,10 @@ form {
 
 }
 
+#page-header {
+   	background: #004878;
+}
+
 .confirm {
 	background-color: #004878;
     color: #c0d6e4;
@@ -134,13 +131,14 @@ form {
 
 }
 
-.page-header {
-    padding-bottom: 9px;
-    margin: 40px 0 20px;
-    border-bottom: 1px solid #004878;
+.logo{
+
+	font-size: 1000%;
+	color: azure;
+	display: inline-block;
+	margin: 2%;
+
 }
-
-
 
 .outgoingTradesContainer {
 	border: 10px solid #004878;
