@@ -7,7 +7,7 @@ const LoginView = React.createClass({
 			<div className="loginView">
 				<Header />
 				<RegisterBox />
-
+				<Footer />
 			</div>
 			)
 	}
@@ -24,11 +24,11 @@ const Header = React.createClass({
 		return (
 			<header id="page-header">
 				<h1 className='logo'>π</h1>
- 				<h1>Vinyl Pi</h1>
+ 				<h1>vinyl pi</h1>
  				<form id='loginBox'onSubmit={this._handleLogin} >
-					<input type="email" name="email" placeholder="enter your email" />
-					<input type="password" name="password" placeholder="enter a password" />
-					<button type="submit">log in!</button>
+					<input className='input-loginbox' type="email" name="email" placeholder="enter your email" />
+					<input className='input-loginbox'type="password" name="password" placeholder="enter a password" />
+					<button id='login-button'type="submit">Log In</button>
 
 				</form>
 			
@@ -56,29 +56,50 @@ const RegisterBox = React.createClass({
 
 	render: function() {
 		return (
-			<div className="loginBox register">
-				<h3>Sign up to post your record collection and see records from other collectors and trade with them.</h3>
-
-				<form id='registerBox' onSubmit={this._handleRegister} >
-					<h3>Register</h3>
-					<input type="text" name="name"
-          placeholder="enter your name" />
-					<input type="email" name="email"
-          placeholder="enter your email" />
-					<input type="password" name="password"
-          placeholder="enter a password" />
-          			<input type="text" name="genreTags" placeholder="enter your fav genres" />
+			<div className="register">
+				<div className='app-content'>
+					<h2>Connect with other unique vinyl lovers around the world on Vinyl Pi</h2>
+					<ul>
+						<li>Post and share your record collection. </li>
+						<li>Find records from other collectors and trade with them.</li>
+						<li>Stop listening to streaming music and get the real stuff with a warmer sound. Touch it, see it, feel it.</li>
+						
+					</ul>
+				</div>
+				<form id='register-box' onSubmit={this._handleRegister} >
+					<h3>Sign Up</h3>
+					<h4>Share your collecting journey.</h4>
+					<input className='input-registerbox' type="text" name="name" placeholder="enter your name" />
+					<input className='input-registerbox' type="email" name="email" placeholder="enter your email" />
+					<input className='input-registerbox' type="password" name="password" placeholder="enter a password" />
+          			<input className='input-registerbox' type="text" name="genreTags" placeholder="enter your fav genres" />
           			<p>How did you get into collecting records?</p>
-          			<input type="text" name="journeyDesc" />
+          			<input className='input-registerbox' type="text" name="journeyDesc" />
           			<p>What is one record that got away that you wished you bought?</p>
-          			<input type="text" name="vinylMissed" />
+          			<input className='input-registerbox' type="text" name="vinylMissed" />
           			<p>What is the best dollar bin record you bought?</p>
-          			<input type="text" name="vinylDollar" />
-					<button type="submit">sign up!</button>
+          			<input className='input-registerbox' type="text" name="vinylDollar" />
+					<button id='register-button'type="submit">Create Account</button>
 				</form>
 			</div>
+
 			)
 	}
+})
+
+const Footer = React.createClass({
+	render: function() {
+		return(
+				<footer>
+					<h3 id="trademark">© 2016 Vinyl Pi.</h3>
+
+				</footer>
+
+			)
+
+	}
+
+
 })
 
 export default LoginView

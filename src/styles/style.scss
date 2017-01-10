@@ -25,12 +25,6 @@ a:hover {
 	
 }
 
-button {
-	 color: #004878;
-	 background-color: #c0d6e4;
-	 height: 38px;
-
-}
 
 p {
 	margin: 1%;
@@ -48,10 +42,9 @@ h1 {
 }
 
 h3 {
-	padding: 1%;
     color: #004878;
-    margin: 5%;
-    text-align: center;
+    width: 40%;
+  
 }
 
 h5 {
@@ -61,13 +54,16 @@ h5 {
 
 }
 
-input {
-    height: 38px;
-    background-color: #fff;
-    margin: 2%;
-    padding: 2%;
-    width: 40%;
-   
+li {
+	margin-bottom: 10%;
+}
+
+footer{
+	width: 100%;
+	height: 100px;
+	background: #004878;
+
+
 }
 
 textarea {
@@ -92,6 +88,19 @@ img {
 
 }
 
+#login-button {
+	 color: #004878;
+	 background-color: #c0d6e4;
+	 height: 25px;
+
+
+}
+
+#register-button {
+	padding: 4%;
+
+}
+
 #piSymbol {
 	font-size: 200px;
 	color: #004878
@@ -101,6 +110,12 @@ img {
 #navBar {
 	width: 45%;
     margin: auto;
+
+}
+
+#register-box{
+	float: right;
+	width: 40%;
 
 }
 
@@ -122,6 +137,14 @@ img {
 
 #page-header {
    	background: #004878;
+   	height: 200px;
+}
+
+#trademark{
+	color: azure;
+    padding-top: 2%;
+    padding-left: 1%;
+
 }
 
 .confirm {
@@ -131,13 +154,32 @@ img {
 
 }
 
-.logo{
+.logo {
 
 	font-size: 1000%;
 	color: azure;
 	display: inline-block;
 	margin: 2%;
 
+}
+
+.input-loginbox {
+	height: 25px;
+    background-color: #fff;
+    margin: 4%;
+    padding: 1%;
+    width: 30%;
+
+}
+
+.input-registerbox {
+	display: block;
+    width: 80%;
+    padding: 3%;
+    margin-bottom: 3%;
+    margin-left: 0;
+    border-radius: 5px;
+    border: 1px solid #004878;
 }
 
 .outgoingTradesContainer {
@@ -157,6 +199,18 @@ img {
 
 .hidden {
 	display: none;
+}
+
+.app-content {
+	width: 50%;
+	float: left;
+	padding-left: 5%;
+
+}
+
+.register{
+	height: 100vh;
+
 }
 
 
