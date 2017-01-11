@@ -30,7 +30,7 @@ const MyVinylView = React.createClass({
 
 	render: function () {
 		return (
-				<div className = 'myVinylView'>
+				<div className = 'my-vinyl-view'>
 					<MyVinylContainer vinylColl = {this.state.vinylCollection} /> 
 
 				</div>
@@ -66,7 +66,7 @@ const MyVinylContainer = React.createClass ({
     }
 
 		return (
-				<div style={styleObj} className = 'myVinylContainer'>
+				<div style={styleObj} className = 'my-vinyl-container'>
 					<div><h3>My Shelf</h3></div>
 					<div><button onClick={this._toggleMenu}>{buttonTxt}</button></div>
 					<div className='sidebar-content'>

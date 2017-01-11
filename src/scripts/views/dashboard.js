@@ -4,7 +4,6 @@ import MyVinylView from './myVinylView'
 import {User, UserModel, UserCollection} from '../models/models'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
-//components are like the corporate managers receiving all the information or files or data and sometimes they will speak back to 
 
 const Dashboard = React.createClass({
 	
@@ -49,7 +48,7 @@ const CollectorsContainer = React.createClass({
 		console.log()
 
 		return (
-			<div className="collectorsContainer">
+			<div className="collectors-container">
 				<h3>Welcome {User.getCurrentUser().name}!</h3>
 				<h3>Click to view shelf and trade</h3>
 				{this.props.userColl.map(
@@ -62,8 +61,6 @@ const CollectorsContainer = React.createClass({
 const Collector = React.createClass({
 	
 	render: function() {
-		console.log("all user ids>>>", this.props.userModel.get("_id"))
-		console.log("current user logged in>>>", User.getCurrentUser('_id') )
 		let currentUserClass = ''
 		if(User.getCurrentUser('_id') === this.props.userModel.get('_id')) {
 			currentUserClass = 'hidden'
@@ -71,26 +68,19 @@ const Collector = React.createClass({
 		} 
 		
 		return (
-		
-			<div className="container body">
-  				<div className="row">
-    				<div className="col-md-9 col-sm-offset-2">
-    					<div className={currentUserClass}>
-							<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
-								<ul>
-									<li><img src = {this.props.userModel.get('favImgUrl')}/></li>
-									<li>Name: {this.props.userModel.get('name')}</li> 
-									<li>Favorite genres: {this.props.userModel.get('genreTags')}</li>
-									<li>How I got into collecting records: {this.props.userModel.get('journeyDesc')}</li>
-									<li>The one that got away: {this.props.userModel.get('vinylMissed')}</li>
-									<li>Best dollar bin record: {this.props.userModel.get('vinylDollar')}</li>
-
-								</ul>
-							</a>
-					</div>
-				</div>
+				<div className={currentUserClass}>
+					<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
+						<ul>
+							<li><img src = {this.props.userModel.get('favImgUrl')}/></li>
+							<li>Name: {this.props.userModel.get('name')}</li> 
+							<li>Favorite genres: {this.props.userModel.get('genreTags')}</li>
+							<li>How I got into collecting records: {this.props.userModel.get('journeyDesc')}</li>
+							<li>The one that got away: {this.props.userModel.get('vinylMissed')}</li>
+							<li>Best dollar bin record: {this.props.userModel.get('vinylDollar')}</li>
+						</ul>
+					</a>
 			</div>
-		</div>
+	
 			)
 		}
 	})

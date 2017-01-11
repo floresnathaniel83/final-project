@@ -44,7 +44,7 @@ const ShelfView = React.createClass({
 const CollectorsVinylContainer = React.createClass ({
 	render : function () {
 		return (
-				<div className = 'vinylContainer'>
+				<div className = 'vinyl-container'>
 					<h3>{this.props.vinylColl.models[0].get('usersInfo').name}'s Collection</h3>
 									{this.props.vinylColl.map(
 					(model) => <CollectorsVinyl vinylModel = {model} key = {model.id} />)}

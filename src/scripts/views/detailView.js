@@ -13,8 +13,6 @@ const DetailView = React.createClass({
 	},
 
 	componentWillMount: function () {
-		//console.log('collection on state:', this.state.vinylModel)
-		//console.log(this.props.vinylId)
 		let queryForSingleVinyl =  {vinylId: this.props.vinylId}
 		
 		ACTIONS.fetchSingleVinyl(queryForSingleVinyl)
@@ -31,9 +29,8 @@ const DetailView = React.createClass({
 	},
 
 	render: function () {
-		//console.log('rendering detail view', this.state.vinylModel)
 		return (
-				<div className = 'vinylContainer'> 
+				<div className = 'vinyl-container'> 
 					<NavBar />
 					<Detail vinylModel = {this.state.vinylModel} />
 

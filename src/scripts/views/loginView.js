@@ -4,7 +4,7 @@ import ACTIONS from '../ACTIONS'
 const LoginView = React.createClass({
 	render: function() {
 		return (
-			<div className="loginView">
+			<div className="login-view">
 				<Header />
 				<RegisterBox />
 				<Footer />
@@ -25,7 +25,7 @@ const Header = React.createClass({
 			<header id="page-header">
 				<h1 className='logo'>π</h1>
  				<h1>vinyl pi</h1>
- 				<form id='loginBox'onSubmit={this._handleLogin} >
+ 				<form id='login-box'onSubmit={this._handleLogin} >
 					<input className='input-loginbox' type="email" name="email" placeholder="enter your email" />
 					<input className='input-loginbox'type="password" name="password" placeholder="enter a password" />
 					<button id='login-button'type="submit">Log In</button>

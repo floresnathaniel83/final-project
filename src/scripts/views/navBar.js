@@ -8,12 +8,12 @@ const NavBar = React.createClass({
 	render: function() {
 
 		return (
-			<div id="navBar">
-				<a className="button button-primary" href="#login">Log In</a>
-				<a className="button button-primary" href="#home">All Vinyl</a>
-        		<a className="button button-primary" href="#vinyl/postVinyl">Post Vinyl</a>
-        		<a className="button button-primary" href="#trades/allTrades">All Trades</a>
-        		<a className="button button-primary" href="#login" onClick={ACTIONS.logUserOut} >Log Out</a>
+			<div id="nav-bar">
+				<a  href="#login">Log In</a>
+				<a  href="#home">All Vinyl</a>
+        		<a  href="#vinyl/postVinyl">Post Vinyl</a>
+        		<a  href="#trades/allTrades">All Trades</a>
+        		<a  href="#login" onClick={ACTIONS.logUserOut} >Log Out</a>
         		
 			</div>
 			

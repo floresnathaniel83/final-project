@@ -95,7 +95,7 @@ const IncomingTrades = React.createClass({
 		}
 
 		return (
-			<div className = 'vinylContainer'>
+			<div className = 'vinyl-container'>
 				<div className = 'vinyl'>
 					<h3>{this.props.incomingTradesModel.get('vinylTrade').usersInfo.name} Offers</h3>
 						<ul>
@@ -155,7 +155,7 @@ const OutgoingTrades = React.createClass({
 		}
 
 		return (
-			<div className = 'vinylContainer'>
+			<div className = 'vinyl-container'>
 				<div className = 'vinyl'>
 					<h3>I'm Offering</h3>
 						<ul>

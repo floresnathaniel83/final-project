@@ -30,7 +30,7 @@ const ComposeView = React.createClass({
 	render: function() {
 	 	console.log(this.state.userModel)
 	 	return (
-	 		<div className="composeView" >
+	 		<div className="compose-view" >
 	 			<NavBar />
 	 			<h3>FILL YOUR SHELF UP!</h3>
 	 			<VinylPostingForm usersInfoModel={this.state.userModel}/>
@@ -56,17 +56,15 @@ const VinylPostingForm = React.createClass({
 
 		},
 		
-		_handleImage: function (result) {
-			//console.log(result) 
+		_handleImage: function (result) { 
 			this.url = result.url 
-
 
 		},
 
 		render: function() {
 			return (
 				
-				<div className="vinylPostingForm">
+				<div className="vinyl-posting-form">
 					<form onSubmit = {this._handleCompose}>
 						<input type = 'text' name = 'title' placeholder = 'Enter the name of the album' />
 						<input type = 'text' name = 'artist' placeholder = 'Enter the artist' />
