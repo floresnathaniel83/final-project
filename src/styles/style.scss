@@ -93,7 +93,6 @@ img {
 	 background-color: #c0d6e4;
 	 height: 25px;
 
-
 }
 
 #register-button {
@@ -108,8 +107,12 @@ img {
 }
 
 #nav-bar {
-	width: 45%;
-    margin: auto;
+	display: inline-block;
+    float: right;
+    margin-top: 125px;
+    width: 50%;
+    white-space: nowrap;
+    padding-right: 2%;
 
 }
 
@@ -135,7 +138,7 @@ img {
 
 }
 
-#page-header {
+#landing-page-header {
    	background: #004878;
    	height: 200px;
 }

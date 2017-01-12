@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
+import Footer from './footer'
 import {User, VinylModel, VinylCollection, TradesModel} from '../models/models'
 import $ from 'jquery'
 
@@ -33,7 +34,7 @@ const DetailView = React.createClass({
 				<div className = 'vinyl-container'> 
 					<NavBar />
 					<Detail vinylModel = {this.state.vinylModel} />
-
+					<Footer />
 				</div>
 
 			)

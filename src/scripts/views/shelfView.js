@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
+import Footer from './footer'
 import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
 
@@ -35,7 +36,7 @@ const ShelfView = React.createClass({
 				<div className = 'shelf'>
 					<NavBar />
 					<CollectorsVinylContainer vinylColl = {this.state.vinylCollection} />
-					
+					<Footer />
 				</div>
 			)
 		}

@@ -1,6 +1,6 @@
 import React from 'react'
 import ACTIONS from '../ACTIONS'
-//adjust styling to landing page layout may copy facebook or instagram or make my own with full background image
+
 const LoginView = React.createClass({
 	render: function() {
 		return (
@@ -22,7 +22,7 @@ const Header = React.createClass({
 
 	render: function() {
 		return (
-			<header id="page-header">
+			<header id="landing-page-header">
 				<h1 className='logo'>π</h1>
  				<h1>vinyl pi</h1>
  				<form id='login-box'onSubmit={this._handleLogin} >

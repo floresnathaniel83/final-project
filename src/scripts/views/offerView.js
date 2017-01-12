@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
+import Footer from './footer'
 import MyVinylView from './myVinylView'
 import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
@@ -39,6 +40,7 @@ const OfferView = React.createClass ({
 					offeredVinylModel={this.state.vinylOffered} //>>> new shit set on state
 					wantedVinylModel={this.state.vinylModel} 
 					/>
+				<Footer />
 			</div>
 			)
 	}

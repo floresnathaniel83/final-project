@@ -4,6 +4,7 @@ import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
 import MyVinylView from './myVinylView'
+import Footer from './footer'
 import {TradesModel, TradesCollecton, User} from '../models/models'
 
 
@@ -40,6 +41,7 @@ const AllTradesView = React.createClass({
 				<MyVinylView />
 				<OutgoingTradesContainer outgoingTradesColl= {this.state.tradesCollection.where({offeringUser: User.getCurrentUser()._id})} />
 				<IncomingTradesContainer incomingTradesColl= {this.state.tradesCollection.where({confirmingUser : User.getCurrentUser()._id})} />
+				<Footer />
 			</div>
 
 			)

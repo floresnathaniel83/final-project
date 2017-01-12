@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from './navBar'
+import Footer from './footer'
 import MyVinylView from './myVinylView'
 import {User, UserModel, UserCollection} from '../models/models'
 import TRADE_STORE from '../STORE'
@@ -35,7 +36,7 @@ const Dashboard = React.createClass({
 					<NavBar />
 					<MyVinylView />
 					<CollectorsContainer userColl = {this.state.userCollection} />
-					
+					<Footer />
 				</div>
 			)
 
