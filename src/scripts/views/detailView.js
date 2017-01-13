@@ -32,12 +32,13 @@ const DetailView = React.createClass({
 
 	render: function () {
 		return (
-				<div className = 'vinyl-container'> 
+				 <div className = 'detail-vinyl-view'>
 					<NavBar />
 					<MyVinylView />
 					<Detail vinylModel = {this.state.vinylModel} />
 					<Footer />
 				</div>
+			
 
 			)
 		}
@@ -47,7 +48,8 @@ const DetailView = React.createClass({
 
 		render : function () {
 			return (
-				
+						<div className = 'vinyl-container'>
+							<h3>Interested? Let's Trade</h3>
 							<div className = 'vinyl'>
 								<ul>
 									<li><img src = {this.props.vinylModel.get('imageUrl')}/></li>
@@ -55,9 +57,10 @@ const DetailView = React.createClass({
 									<li>Year: {this.props.vinylModel.get('year')}</li>
 									<li>Record Store: {this.props.vinylModel.get('location')}</li>
 									<li>Artist Description: {this.props.vinylModel.get('artistDesc')}</li>
-									<a href={`#vinyl/offer/${this.props.vinylModel.get('_id')}`} id='tradeButton'>Trade</a>
 								</ul>
 							</div> 
+							<a href={`#vinyl/offer/${this.props.vinylModel.get('_id')}`} id='trade-button'>Trade</a>
+						</div>
 
 				)
 

@@ -92,7 +92,7 @@ const TradeContainer = React.createClass ({
 								<li>Artist Description: {this.props.offeredVinylModel.get('artistDesc')}</li>
 						</ul>
 				</div>
-				<button onClick ={this._handleTrade} className={buttonClass}>make offer</button>
+				<button id='offer-button' onClick ={this._handleTrade} className={buttonClass}>make offer</button>
 	
 			</div>
 			)
