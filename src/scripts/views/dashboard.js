@@ -62,14 +62,14 @@ const CollectorsContainer = React.createClass({
 const Collector = React.createClass({
 	
 	render: function() {
-		let currentUserClass = ''
-		if(User.getCurrentUser('_id') === this.props.userModel.get('_id')) {
-			currentUserClass = 'hidden'
+		//let currentUserClass = ''
+		//if(User.getCurrentUser('_id') === this.props.userModel.get('_id')) {
+		//	currentUserClass = 'hidden'
 	
-		} 
+		//} 
 		
 		return (
-				<div className={currentUserClass}>
+				//<div className={currentUserClass}>
 					<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
 						<ul>
 							<li><img src = {this.props.userModel.get('favImgUrl')}/></li>
@@ -80,7 +80,7 @@ const Collector = React.createClass({
 							<li>Best dollar bin record: {this.props.userModel.get('vinylDollar')}</li>
 						</ul>
 					</a>
-			</div>
+				//</div>
 	
 			)
 		}

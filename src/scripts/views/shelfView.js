@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import TRADE_STORE from '../STORE'
 import ACTIONS from '../ACTIONS'
 import NavBar from './navBar'
+import MyVinylView from './myVinylView'
 import Footer from './footer'
 import {User, VinylModel, VinylCollection} from '../models/models'
 import $ from 'jquery'
@@ -29,9 +30,8 @@ const ShelfView = React.createClass({
 		TRADE_STORE.off('updateContent')
 
 	},
-
+//I want to be able to add in the myvinylview component here, but it is not rendering the collection unique to owner id (only rendering collection unique current user id)
 	render: function () {
-		console.log( )
 		return (
 				<div className = 'shelf'>
 					<NavBar />
@@ -42,7 +42,7 @@ const ShelfView = React.createClass({
 		}
 	})
 
-const CollectorsVinylContainer = React.createClass ({
+	const CollectorsVinylContainer = React.createClass ({
 	render : function () {
 		return (
 				<div className = 'vinyl-container'>

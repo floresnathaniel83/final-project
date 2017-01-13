@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from './navBar'
 import Footer from './footer'
+import MyVinylView from './myVinylView'
 import ACTIONS from '../ACTIONS'
 import TRADE_STORE from '../STORE'
 import {UserModel, User} from '../models/models'
@@ -33,6 +34,7 @@ const ComposeView = React.createClass({
 	 	return (
 	 		<div className="compose-view" >
 	 			<NavBar />
+	 			<MyVinylView />
 	 			<h3>FILL YOUR SHELF UP!</h3>
 	 			<VinylPostingForm usersInfoModel={this.state.userModel}/>
 	 			<Footer />

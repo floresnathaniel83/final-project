@@ -62,12 +62,11 @@ const MyVinylContainer = React.createClass ({
 		     var buttonTxt = "X"
 	    } else {
 		     var styleObj = {transform: "translateX(100%)"}
-		     var buttonTxt = "<"
+		     var buttonTxt = "My Shelf"
     }
 
 		return (
 				<div style={styleObj} className = 'my-vinyl-container'>
-					<div><h3>My Shelf</h3></div>
 					<div><button onClick={this._toggleMenu}>{buttonTxt}</button></div>
 					<div className='sidebar-content'>
 							{this.props.vinylColl.map(
