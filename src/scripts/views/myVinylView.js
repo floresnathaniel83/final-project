@@ -67,7 +67,7 @@ const MyVinylContainer = React.createClass ({
 
 		return (
 				<div style={styleObj} className = 'my-vinyl-container'>
-					<div><button onClick={this._toggleMenu}>{buttonTxt}</button></div>
+					<div><button id='shelf-button' onClick={this._toggleMenu}>{buttonTxt}</button></div>
 					<div className='sidebar-content'>
 							{this.props.vinylColl.map(
 						(model) => <MyVinyl vinylModel = {model} key = {model.id} />)}

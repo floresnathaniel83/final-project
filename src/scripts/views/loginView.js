@@ -58,7 +58,7 @@ const RegisterBox = React.createClass({
 		return (
 			<div className="register">
 				<div className='app-content'>
-					<h2>Connect with other unique vinyl lovers around the world on Vinyl Pi</h2>
+					<h2>Connect with other unique vinyl lovers around the world on Vinyl Pi.</h2>
 					<ul>
 						<li>Post and share your record collection. </li>
 						<li>Find records from other collectors and trade with them.</li>
