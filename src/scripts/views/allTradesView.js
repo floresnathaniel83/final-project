@@ -83,7 +83,6 @@ const IncomingTrades = React.createClass({
 	},
 
 	render: function () {
-		console.log(this.props.incomingTradesModel)
 		let acceptClass = ''
 
 		if (this.props.incomingTradesModel.get('accepted') === 'no' || this.props.incomingTradesModel.get('accepted') === 'pending') {
@@ -144,7 +143,6 @@ const OutgoingTrades = React.createClass({
 	},
 
 	render: function () {
-		console.log(this.props.outgoingTradesModel.get('_id'))
 		let acceptClass = ''
 		if (this.props.outgoingTradesModel.get('accepted') === 'no' || this.props.outgoingTradesModel.get('accepted') === 'pending') {
 			acceptClass = 'hidden'

@@ -87,7 +87,7 @@ textarea {
 }
 
 img {
-	width: 100%;
+	width: 280px;
 
 }
 
@@ -305,7 +305,10 @@ a.vinyl:hover{
 
 }
 
+.trade-header{
+	color: #004878;
 
+}
 
 .collectors-container {
 	text-align: -webkit-center;
@@ -359,8 +362,62 @@ a.vinyl:hover{
 		                width: 60%;
 		            }
 	        	}
-
 }
+
+.trade-container {
+	text-align: -webkit-center;
+
+	.wanted-column {
+		float: left;
+	    color: #004878;
+	    border: 1px solid #004878;
+	    background-color: #c0d6e4;
+	    width: 45%;
+	    font-weight: 700;
+	    margin-left: 2%;
+	    display: inline-block;
+	    padding: 0;
+	    margin-bottom: 5%;
+	    height: 700px;
+	}
+			ul {
+	            list-style-type: none;
+
+		            >li{
+		                padding: 5px;
+		                border-bottom: #004878 1px solid;
+		                border-left: #004878 6px solid;
+		                margin: 8px 0;
+		                text-align: left;
+		                width: 60%;
+		            }
+	        	}
+
+	.offered-column {
+		float: right;
+	    color: #004878;
+	    border: 1px dashed #004878;
+	    width: 45%;
+	    font-weight: 700;
+	    display: inline-block;
+	    padding: 0;
+	    margin-right: 2%;
+	    margin-bottom: 7%;
+	    height: 700px;
+	}
+			ul {
+	            list-style-type: none;
+
+		            >li{
+		                padding: 5px;
+		                border-bottom: #004878 1px solid;
+		                border-left: #004878 6px solid;
+		                margin: 8px 0;
+		                text-align: left;
+		                width: 60%;
+		            }
+	        	}
+	}
 
 	.my-vinyl-container { 
 		position: fixed; 

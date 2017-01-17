@@ -66,11 +66,11 @@ const TradeContainer = React.createClass ({
 		}
 
 		return (
-			<div className = 'vinyl-container'>
-				<h3>TRADE</h3>
+			<div className = 'trade-container'>
+				<h2>TRADE</h2>
 					
-					<div className = 'vinyl'>
-						<h1>I want</h1>
+					<div className = 'wanted-column'>
+						<h1 className='trade-header'>I want</h1>
 							<ul>
 								<li><img src={this.props.wantedVinylModel.get('imageUrl')} /></li>
 								<li>artist: {this.props.wantedVinylModel.get('artist')}</li>
@@ -81,8 +81,8 @@ const TradeContainer = React.createClass ({
 							</ul>
 					</div>
 				
-				<div className = 'vinyl'>
-					<h1>I offer</h1>
+				<div className = 'offered-column'>
+					<h1 className='trade-header'>I offer</h1>
 						<ul>
 								<li><img src={this.props.offeredVinylModel.get('imageUrl')} /></li>
 								<li>artist: {this.props.offeredVinylModel.get('artist')}</li>
