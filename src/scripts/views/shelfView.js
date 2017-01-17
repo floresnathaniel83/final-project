@@ -36,7 +36,7 @@ const ShelfView = React.createClass({
 				<div className = 'shelf'>
 					<NavBar />
 					<CollectorsVinylContainer vinylColl = {this.state.vinylCollection} />
-					<Footer />
+			
 				</div>
 			)
 		}
@@ -60,20 +60,15 @@ const ShelfView = React.createClass({
 const CollectorsVinyl = React.createClass ({
 	render: function () {
 		return (
-			<div className="container body">
-  				<div className="row">
-    				<div className="col-md-9 col-sm-offset-2">
+					<div className = 'vinyl-cards'>
 						<a href={`#vinyl/detail/${this.props.vinylModel.get('_id')}`} className='vinyl'>
 							<ul>
 								<li><img src = {this.props.vinylModel.get('imageUrl')}/></li>
-								<li>Artist: {this.props.vinylModel.get('artist')}</li>
-								<li>title: {this.props.vinylModel.get('title')}</li>
 
 							</ul>
 						</a>
 					</div>
-				</div>
-			</div>		
+				
 			)
 	}
 

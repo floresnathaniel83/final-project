@@ -55,7 +55,7 @@ const DetailView = React.createClass({
 									<li><img src = {this.props.vinylModel.get('imageUrl')}/></li>
 									<li>artist: {this.props.vinylModel.get('artist')}</li>
 									<li>Year: {this.props.vinylModel.get('year')}</li>
-									<li>Record Store: {this.props.vinylModel.get('location')}</li>
+									<li>Record Store Bought At: {this.props.vinylModel.get('location')}</li>
 									<li>Artist Description: {this.props.vinylModel.get('artistDesc')}</li>
 								</ul>
 							</div> 

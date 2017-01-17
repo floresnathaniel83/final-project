@@ -72,7 +72,7 @@ const Collector = React.createClass({
 				//<div className={currentUserClass}>
 					<a href = {`#vinyl/shelf/${this.props.userModel.get('_id')}`} className="collector">
 						<ul>
-							<li><img src = {this.props.userModel.get('favImgUrl')}/></li>
+							<li><img id='user-image' src = {this.props.userModel.get('favImgUrl')}/></li>
 							<li>Name: {this.props.userModel.get('name')}</li> 
 							<li>Favorite genres: {this.props.userModel.get('genreTags')}</li>
 							<li>How I got into collecting records: {this.props.userModel.get('journeyDesc')}</li>
