@@ -69,15 +69,19 @@ const VinylPostingForm = React.createClass({
 			return (
 				
 				<div className="vinyl-posting-form">
-					<form onSubmit = {this._handleCompose}>
+					<div id='file-button'>
+						<ReactFilepicker apikey= 'A0hkVciLxQAuC7SR2RhKDz' onSuccess={this._handleImage}/>
+					</div>
+				
+					<form id='post-form' onSubmit = {this._handleCompose}>
+						
 						<input type = 'text' name = 'title' placeholder = 'Enter the name of the album' />
 						<input type = 'text' name = 'artist' placeholder = 'Enter the artist' />
 						<input type = 'text' name = 'year' placeholder = 'Enter the year produced' />
-						<textarea type = 'text' name = 'artistDesc' placeholder = 'Enter description'></textarea>
 						<input type = 'text' name = 'location' placeholder = 'What record store did you find it at?'/>
-						<ReactFilepicker apikey= 'A0hkVciLxQAuC7SR2RhKDz' onSuccess={this._handleImage}/>
-	
-						<button type = 'submit'>Submit</button>
+						<textarea type = 'text' name = 'artistDesc' placeholder = 'Enter description'></textarea>
+						<button id = 'submit-button' type = 'submit'>Submit</button>
+
 					</form>
 				</div>
 				)

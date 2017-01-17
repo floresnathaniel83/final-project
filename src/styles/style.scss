@@ -79,14 +79,22 @@ footer{
 }
 
 textarea {
-    min-height: 200px;
+   	min-height: 200px;
     min-width: 100%;
     padding-top: 6px;
     padding-bottom: 6px;
+    padding-left: 1%;
 }
 
 img {
 	width: 35%;
+
+}
+
+input{
+	width: 25%;
+    height: 30px;
+    padding: 1%;
 
 }
 
@@ -104,10 +112,15 @@ img {
 
 }
 
+#file-button{
+	margin-left: 1%;
+}
+
 #login-button {
 	 color: #004878;
 	 background-color: #c0d6e4;
 	 height: 25px;
+	 width: 15%;
 
 }
 #login-button:hover {
@@ -118,10 +131,25 @@ img {
 
 #register-button {
 	padding: 4%;
+	width: 40%;
 
 }
 
 #register-button:hover{
+	background: lavender;
+
+}
+
+#submit-button {
+	padding: 4%;
+	width: 40%;
+	padding: 4%;
+    width: 100%;
+    margin-top: 1%;
+    font-size: -webkit-xxx-large;
+}
+
+#submit-button:hover{
 	background: lavender;
 
 }
@@ -134,6 +162,11 @@ img {
 #pi-symbol {
 	font-size: 200px;
 	color: #004878
+
+}
+
+#post-form{
+	padding: 4%;
 
 }
 
