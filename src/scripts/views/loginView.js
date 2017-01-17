@@ -61,8 +61,8 @@ const RegisterBox = React.createClass({
 					<h2>Connect with other unique vinyl lovers around the world on Vinyl Pi.</h2>
 					<ul>
 						<li>Post and share your record collection. </li>
-						<li>Find records from other collectors and trade with them.</li>
-						<li>Stop listening to streaming music and get the real stuff with a warmer sound. Touch it, see it, feel it.</li>
+						<li>Find records from other collectors and trade with them. Delivered to your mailbox. Take it out and throw it on the record player!</li>
+						<li>Stop listening to streaming music and get the real stuff with a warmer sound. Touch it, see it, feel it. Enjoy music as it was meant to be!</li>
 						
 					</ul>
 				</div>
