@@ -24,14 +24,14 @@ const Header = React.createClass({
 		return (
 			<header id="landing-page-header">
 				<h1 className='logo'>π</h1>
- 				<h1>vinyl pi</h1>
- 				<form id='login-box'onSubmit={this._handleLogin} >
+				<h1>vinyl pi</h1>
+
+				<form id='one-column-header' className='login-box'onSubmit={this._handleLogin} >
 					<input className='input-loginbox' type="email" name="email" placeholder="enter your email" />
 					<input className='input-loginbox'type="password" name="password" placeholder="enter a password" />
 					<button id='login-button'type="submit">Log In</button>
 
 				</form>
-			
 			</header>
 
 			)
